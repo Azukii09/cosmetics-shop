@@ -2,3 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+.btn{
+    @apply p-2 rounded-xl shadow-sm text-base
+}
+
+.btn-primary{
+    @apply bg-primary text-white hover:bg-secondary;
+}
+.btn-success{
+    @apply bg-success text-slate-500 hover:bg-green-400 hover:text-slate-100;
+}
+.btn-warning{
+    @apply bg-warning text-white hover:bg-contras hover:text-warning hover:font-bold hover:text-sm;
+}
+.btn-danger{
+    @apply bg-danger text-white hover:bg-contras hover:text-danger hover:font-bold;
+}
+.btn-info{
+    @apply bg-info text-slate-600 hover:bg-secondary;
+}
+
+.hamburger-active > span:nth-child(1) {
+    @apply rotate-45;
+}
+
+.hamburger-active > span:nth-child(2) {
+    @apply scale-0;
+}
+
+.hamburger-active > span:nth-child(3) {
+    @apply w-[30px] -rotate-45;
+}

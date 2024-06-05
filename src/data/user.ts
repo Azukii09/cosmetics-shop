@@ -17,6 +17,6 @@ const user = [
     },
 ]
 
-export const getUsers = (email: string) => {
+export const getUsers = (email: any) => {
     return user.find(user => user.email === email);
 }

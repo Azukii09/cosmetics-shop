@@ -17,10 +17,21 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             authorize: async (credentials) => {
                 if (credentials === null) return null;
                 try {
-                    const user = getUsers(email);
+                    const user = getUsers(credentials?.email);
+                    if (user){
+                        const isMatch = user?.password === credentials?.password;
+                        if (isMatch){
+                            return user;
+                        } else {
+                            throw new Error("Invalid Credentials");
+                        }
+                    } else {
+                        throw new Error("User not found");
+                    }
                 }
-                catch (error) {}
-                return user
+                catch (error) {
+                    throw error;
+                }
             },
         }),
     ],
