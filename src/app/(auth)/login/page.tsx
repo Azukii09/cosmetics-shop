@@ -9,6 +9,7 @@ export default function Login(){
     const router = useRouter()
     async function handleFormSubmit(e:any){
         e.preventDefault();
+        console.log(e.currentTarget)
         try {
             const formData = new FormData(e.currentTarget);
             const response = await doCredentialLogin(formData);
