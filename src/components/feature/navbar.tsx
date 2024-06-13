@@ -1,40 +1,35 @@
 "use client"
-import Hamburger from "@/components/tokens/hamburger";
-import {useState} from "react";
-import Image from "next/image";
-import Link from "next/link";
-import Button from "@/components/tokens/button";
-import {signIn} from "next-auth/react";
+import MenuMobile from "@/components/components/menuMobile";
+import Logo from "@/components/tokens/logo";
+import NavSearchBar from "@/components/feature/navSearchBar";
+import NavIcon from "@/components/feature/navIcon";
+import {getNavbar} from "@/data/navbar";
+import ListComponent from "@/components/components/listComponent";
 
 export default function Navbar(){
-    const [state, setState] = useState(false);
-    const [hamburger, setHamburger] = useState("");
-    const HandleHamburger = () => {
-        setHamburger("hamburger-active");
-        setState(!state);
-    }
-    const logo = "/assets/img/keaLogo.png";
+
 
     return(
-        <nav className="py-5 px-4 bg-slate-600 flex items-center justify-between">
-            <div className="flex items-center justify-between relative">
-                <Hamburger
-                    handler={HandleHamburger}
-                    action={state ? hamburger + " block absolute lg:hidden":"block absolute lg:hidden"}
-                />
-                <Link href={"/dashboard"} className="lg:flex hidden items-center justify-between">
-                    <Image
-                        src={logo}
-                        alt={"..."}
-                        width={100}
-                        height={100}
-                    />
-                </Link>
+        <nav className="h-20 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">
+            {/*Mobile*/}
+            <div className="h-full flex items-center justify-between md:hidden">
+                <Logo/>
+                <MenuMobile/>
+            </div>
+            {/*bigger screen*/}
+            <div className={"hidden md:flex items-center h-full justify-between gap-8"}>
+                {/*Left*/}
+                <div className={"w-1/3 xl:w-1/2 flex items-center justify-between"}>
+                    <Logo/>
+                    <ListComponent list={getNavbar()} ulClass={"hidden xl:flex"} itemClass={"px-4"}/>
+                </div>
+                {/*Right*/}
+                <div className={"w-2/3 flex items-center justify-between gap-8 xl:w-1/2"}>
+                    <NavSearchBar/>
+                    <NavIcon/>
+                </div>
+            </div>
 
-            </div>
-            <div>
-                <Button typeName={"button"} className={"btn btn-info"} name={"Login"} handler={() => signIn("credentials")} />
-            </div>
         </nav>
     )
 }
