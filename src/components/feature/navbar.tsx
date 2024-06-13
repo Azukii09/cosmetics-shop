@@ -1,6 +1,8 @@
 "use client"
 import MenuMobile from "@/components/components/menuMobile";
 import Logo from "@/components/tokens/logo";
+import NavSearchBar from "@/components/components/navSearchBar";
+import NavIcon from "@/components/components/navIcon";
 
 export default function Navbar(){
 
@@ -19,7 +21,10 @@ export default function Navbar(){
                     <Logo/>
                 </div>
                 {/*Right*/}
-                <div className={"w-2/3"}>tes</div>
+                <div className={"w-2/3 flex items-center justify-between gap-8"}>
+                    <NavSearchBar/>
+                    <NavIcon/>
+                </div>
             </div>
             {/*<ListComponent list={getNavbar()} ulClass={"flex"} itemClass={"px-4"}/>*/}
         </nav>
