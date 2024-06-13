@@ -3,6 +3,8 @@ import MenuMobile from "@/components/components/menuMobile";
 import Logo from "@/components/tokens/logo";
 import NavSearchBar from "@/components/components/navSearchBar";
 import NavIcon from "@/components/components/navIcon";
+import {getNavbar} from "@/data/navbar";
+import ListComponent from "@/components/components/listComponent";
 
 export default function Navbar(){
 
@@ -14,19 +16,20 @@ export default function Navbar(){
                 <Logo/>
                 <MenuMobile/>
             </div>
-            {/*md screen*/}
+            {/*bigger screen*/}
             <div className={"hidden md:flex items-center h-full justify-between gap-8"}>
                 {/*Left*/}
-                <div className={"w-1/3"}>
+                <div className={"w-1/3 xl:w-1/2 flex items-center justify-between"}>
                     <Logo/>
+                    <ListComponent list={getNavbar()} ulClass={"hidden xl:flex"} itemClass={"px-4"}/>
                 </div>
                 {/*Right*/}
-                <div className={"w-2/3 flex items-center justify-between gap-8"}>
+                <div className={"w-2/3 flex items-center justify-between gap-8 xl:w-1/2"}>
                     <NavSearchBar/>
                     <NavIcon/>
                 </div>
             </div>
-            {/*<ListComponent list={getNavbar()} ulClass={"flex"} itemClass={"px-4"}/>*/}
+
         </nav>
     )
 }

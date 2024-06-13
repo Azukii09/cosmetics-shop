@@ -1,3 +1,4 @@
+// @ts-ignore
 import { signIn } from "../../../utility/auth";
 
 export function SignIn() {
