@@ -1,4 +1,4 @@
-import Slider from "@/components/feature/slider/slider";
+import Slider from "@/components/feature/slider";
 
 export default function HomePage() {
   return (
