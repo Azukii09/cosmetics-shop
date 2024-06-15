@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .btn{
-    @apply p-2 rounded-xl shadow-sm text-base
+    @apply py-1 px-2 rounded-xl shadow-sm text-base
 }
 
 .btn-primary{
@@ -22,7 +22,7 @@
     @apply bg-info text-slate-600 hover:bg-secondary;
 }
 .btn-line{
-    @apply bg-white text-slate-600 hover:bg-slate-700 hover:text-white border-2 border-slate-200 shadow-none;
+    @apply bg-white text-slate-600 hover:bg-secondary hover:text-white border-2 border-slate-200 shadow-none;
 }
 
 .hamburger-active > span:nth-child(1) {
