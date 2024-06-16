@@ -5,12 +5,31 @@ import NavSearchBar from "@/components/feature/navSearchBar";
 import NavIcon from "@/components/feature/navIcon";
 import {getNavbar} from "@/data/navbar";
 import ListComponent from "@/components/components/listComponent";
+import {useEffect, useState} from "react";
 
 export default function Navbar(){
+    const [heading, setHeading] = useState(false);
 
+    const scrollHeader = ()=>{
+        if(window.scrollY > 20){
+            setHeading(true);
+        }else {
+            setHeading(false);
+        }
+    }
+
+    useEffect(()=>{
+        window.addEventListener("scroll", scrollHeader);
+        return ()=>{
+            window.addEventListener("scroll", scrollHeader);
+        }
+    },[])
 
     return(
-        <nav className="h-20 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">
+        <nav
+            className={heading ?
+                "fixed z-30 bg-gradient-to-t from-info to-white w-full h-20 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 shadow-[rgba(0,0,0,0.2)_0px_2px_3px_0px] opacity-90" :
+                "h-20 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative"}>
             {/*Mobile*/}
             <div className="h-full flex items-center justify-between md:hidden">
                 <Logo/>
