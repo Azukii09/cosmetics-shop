@@ -30,7 +30,7 @@ export default function NavIcon() {
                 onClick={handlerProfile}
             />
             {isProfileOpen && (
-                <div className="absolute p-4 rounded-md top-12 left-0 text-sm z-20 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+                <div className="absolute bg-white p-4 rounded-md top-12 left-0 text-sm z-20 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
                     <Link href={"/"}>Profile</Link>
                     <div className={"mt-2 cursor-pointer"}>Log out</div>
                 </div>
