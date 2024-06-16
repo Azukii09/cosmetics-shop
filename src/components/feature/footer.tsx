@@ -2,6 +2,7 @@
 
 import Logo from "@/components/tokens/logo";
 import Image from "next/image";
+import Link from "next/dist/client/link";
 
 export default function Footer(){
 
@@ -28,12 +29,44 @@ export default function Footer(){
                     </div>
                 </div>
                 {/*center*/}
-                <div className={"w-1/2 hidden lg:flex justify-between"}></div>
+                <div className={"w-1/2 hidden lg:flex justify-between"}>
+                    <div className={"flex flex-col justify-between"}>
+                        <h1 className={"font-medium text-lg"}>COMPANY</h1>
+                        <div className={"flex flex-col gap-6"}>
+                            <Link href={"/"}>About</Link>
+                            <Link href={"/"}>Careers</Link>
+                            <Link href={"/"}>Affiliates</Link>
+                            <Link href={"/"}>Blog</Link>
+                            <Link href={"/"}>Contact Us</Link>
+                        </div>
+                    </div>
+                    <div className={"flex flex-col justify-between"}>
+                        <h1 className={"font-medium text-lg"}>SHOP</h1>
+                        <div className={"flex flex-col gap-6"}>
+                            <Link href={"/"}>New Arrivals</Link>
+                            <Link href={"/"}>Skin Care</Link>
+                            <Link href={"/"}>Body Care</Link>
+                            <Link href={"/"}>Lips</Link>
+                            <Link href={"/"}>Face</Link>
+                        </div>
+                    </div>
+                    <div className={"flex flex-col justify-between"}>
+                        <h1 className={"font-medium text-lg"}>HELP</h1>
+                        <div className={"flex flex-col gap-6"}>
+                            <Link href={"/"}>Customer Services</Link>
+                            <Link href={"/"}>My Account</Link>
+                            <Link href={"/"}>Find a Store</Link>
+                            <Link href={"/"}>Legal & Privacy</Link>
+                            <Link href={"/"}>Gift Card</Link>
+                        </div>
+                    </div>
+
+                </div>
                 {/*right*/}
                 <div className={"w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8"}>
                     <h1 className={"font-medium text-lg"}>SUBSCRIBE</h1>
                     <p>
-                        <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, optio, saepe? Consequatur corporis culpa harum hic non repudiandae sed vel veritatis voluptas voluptates. Accusantium adipisci assumenda ipsam obcaecati, quisquam veritatis!</span>
+                        Be the first to get the latest news about trends, promotions, and much more!
                     </p>
                     <div className={"flex"}>
                         <input
@@ -54,7 +87,19 @@ export default function Footer(){
                 </div>
             </div>
             {/*Bottom*/}
-            <div></div>
+            <div className={"flex flex-col md:flex-row items-center justify-between gap-8 mt-16"}>
+                <div>© 2024 Shop Name</div>
+                <div className={"flex flex-col gap-8 md:flex-row"}>
+                    <div>
+                        <span className={"mr-4 text-white"}>Language</span>
+                        <span className={"font-medium"}>United States | English</span>
+                    </div>
+                    <div>
+                        <span className={"mr-4 text-white"}>Currency</span>
+                        <span className={"font-medium"}>$ USD</span>
+                    </div>
+                </div>
+            </div>
         </footer>
     )
 }
