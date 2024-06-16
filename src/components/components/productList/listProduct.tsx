@@ -8,9 +8,10 @@ export default function ProductList(props: {
     productName:string;
     price:string;
     description:string;
+    href:string;
 }) {
     return(
-        <Link href={"/"} className={"w-full flex flex-col gap-4 sm:w-[45%] lg:w-[22%]"}>
+        <Link href={props.href} className={"w-full flex flex-col gap-4 sm:w-[45%] lg:w-[22%]"}>
             <div className={"relative w-full h-72"}>
                 <Image
                     src={props.fImg}
