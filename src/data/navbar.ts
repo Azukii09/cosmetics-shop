@@ -7,22 +7,22 @@ const navData = [
     {
         id:2,
         name:"Shop",
-        linkTo: "/list"
+        linkTo: "/shop"
     },
     {
         id:3,
         name:"Deals",
-        linkTo: "/list"
+        linkTo: "/deals"
     },
     {
         id:4,
         name:"About",
-        linkTo: "/list"
+        linkTo: "/about"
     },
     {
         id:5,
         name:"Contacts",
-        linkTo: "/list"
+        linkTo: "/contacts"
     },
 ]
 
