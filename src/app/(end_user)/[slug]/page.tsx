@@ -1,8 +1,23 @@
 "use client"
 import Image from "next/image";
 import {useState} from "react";
+import ListComponent from "@/components/components/listComponent";
+import Button from "@/components/tokens/button";
 
 export default function SinglePage() {
+
+    const filterData = [
+        {
+            id: 1,
+            name:"tes 1",
+        },
+        {
+            id: 2,
+            name:"tes 2",
+        },
+    ]
+
+    // for handling images
     const image = [
         {
             id: 1,
@@ -24,26 +39,31 @@ export default function SinglePage() {
 
     const [index, setIndex] = useState(0);
 
+    // handling quantity stock
+    // Temporary
+    const stock = 6;
+    const [number, setNumber] = useState(1);
+
+    const handlerStock = (event:"d"|"i") =>{
+        if (event === "d" && number >1){
+            setNumber((prevState) => prevState - 1);
+        }else if(event === "i" && number <stock){
+            setNumber((prevState) => prevState + 1);
+        }
+    }
+
     return (
         <div className="lg:sticky flex flex-col gap-4 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
-            <div className="mt-12 top-20">
-                <div>
-                    <h1 className={"text-4xl text-slate-600 font-medium"}>Product Tittle</h1>
-                    <h6 className={"text-slate-400 text-sm"}>description</h6>
-                </div>
-                <div className={"w-full h-[2px] bg-slate-200"}></div>
-            </div>
-            <div
-                className={"flex flex-col lg:flex-row gap-16 justify-between"}>
+            <div className={"flex flex-col lg:flex-row gap-16 justify-between"}>
                 {/*Image product*/}
-                <div className={"w-full lg:w-1/2 lg:sticky top-20 h-max"}>
+                <div className={"w-full pt-4 lg:w-1/2 lg:sticky top-20 h-max"}>
                     <div className={"h-[500px] relative"}>
                         <Image
                             src={image[index].image}
                             alt="Big Image"
                             fill
                             sizes={"50vw"}
-                            className={"object-cover rounded-lg"}
+                            className={"object-cover rounded-lg pt_4"}
                         />
                     </div>
                     <div className={"flex gap-4 overflow-x-scroll"}>
@@ -69,85 +89,137 @@ export default function SinglePage() {
                 </div>
                 {/*Description for product*/}
                 <div className={"w-full lg:w-1/2 flex flex-col gap-6"}>
-                    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aliquam amet animi at
-                        doloremque dolores ex incidunt, ipsum laborum nemo nihil optio perferendis possimus quidem,
-                        ratione rerum tempora unde voluptas?
+                    {/*Product tittle*/}
+                    <div className="flex flex-col gap-4">
+                        <div>
+                            <h1 className={"text-3xl text-slate-600 font-medium"}>Product Tittle</h1>
+                            <h6 className={"text-slate-400 text-sm"}>Sub-Tittle</h6>
+                        </div>
+                        <div className={"w-full "}>
+                            <ListComponent list={filterData} ulClass={"flex gap-4"}
+                                           itemClass={"px-4 py-2 rounded-md btn-line"}/>
+                        </div>
                     </div>
-                    <div>Aperiam asperiores commodi fuga hic ipsa nostrum, quaerat quod quos suscipit! Corporis, eius
-                        excepturi fugit maxime minus placeat ratione sequi tempora. Cumque doloribus eaque molestias
-                        officia, provident quasi veniam voluptate.
+                    {/*Line after tittle*/}
+                    <div className={"w-full h-[2px] bg-slate-100"}></div>
+                    {/*Price tag*/}
+                    <div className={"flex gap-4 font-medium items-center justify-between"}>
+                        <div className={"flex gap-6 font-medium items-center"}>
+                            <span className={"text-slate-300 line-through text-2xl"}>$86</span>
+                            <span className={"text-slate-600 text-3xl"}>$68.8</span>
+                        </div>
+                        <span className={"text-white text-sm bg-secondary py-1 px-2 rounded-2xl"}>Discount 20%</span>
                     </div>
-                    <div>A accusantium assumenda beatae cupiditate deserunt dolor dolorem ex, explicabo incidunt iste
-                        magnam minima minus nam nisi, nobis obcaecati possimus quaerat quas quibusdam recusandae
-                        suscipit ut vel voluptatem voluptates voluptatibus.
+                    {/*Line after price tag*/}
+                    <div className={"w-full h-[2px] bg-slate-100"}></div>
+                    {/*User interactions*/}
+                    <div className={"my-4 flex flex-col gap-8 px-2"}>
+                        {/*Top*/}
+                        <div className={"flex flex-col gap-4"}>
+                            <h1 className={"text-slate-600"}>Color</h1>
+                            <div className={"flex items-center gap-3"}>
+                                <div
+                                    className={"w-8 h-8 rounded-full ring-1 ring-info cursor-pointer relative bg-red-500"}>
+                                    <div
+                                        className={"absolute w-10 h-10 rounded-full ring-2 ring-info top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"}></div>
+                                </div>
+                                <div
+                                    className={"w-8 h-8 rounded-full ring-1 ring-info cursor-pointer relative bg-blue-500"}></div>
+                                <div
+                                    className={"w-8 h-8 rounded-full ring-1 ring-info cursor-not-allowed relative bg-green-500 opacity-50"}>
+                                    <div
+                                        className={"absolute w-10 h-[2px] bg-red-500 rotate-45 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"}></div>
+                                </div>
+                            </div>
+                        </div>
+                        {/*Middle*/}
+                        <div className={"flex flex-col gap-4"}>
+                            <h1>Variant</h1>
+                            <div className={"flex gap-2 flex-wrap"}>
+                                <Button typeName={"button"} className={"btn-line py-1 px-2 rounded-xl"} name={"Variant 1"}/>
+                                <Button typeName={"button"} className={"btn-line py-1 px-2 rounded-xl"}
+                                        name={"Variant 2"}/>
+                                <Button typeName={"button"} className={"btn-line py-1 px-2 rounded-xl"} name={"Variant 3"}/>
+                                <Button typeName={"button"} className={"btn-line py-1 px-2 rounded-xl"} name={"Variant 4"}/>
+                                <Button typeName={"button"} className={"btn-line py-1 px-2 rounded-xl"} name={"Variant 5"}/>
+                                <Button typeName={"button"} className={"btn-line py-1 px-2 rounded-xl"}
+                                        name={"Variant 6"}/>
+                                <Button typeName={"button"} className={"btn-line py-1 px-2 rounded-xl"} name={"Variant 7"}/>
+                                <Button typeName={"button"} className={"btn-line py-1 px-2 rounded-xl"} name={"Variant 8"}/>
+                            </div>
+                        </div>
+                        {/*Bottom*/}
+                        <div>
+                            <h1 className={"text-slate-600"}>Quantity</h1>
+                            <div className={"flex gap-6 justify-between mt-4"}>
+                                <div className={"flex gap-4"}>
+                                    <div
+                                        className={"flex gap-8 rounded-3xl bg-slate-100 items-center px-4 text-slate-600"}>
+                                        <button onClick={() => handlerStock("d")}>-</button>
+                                        {number}
+                                        <button onClick={() => handlerStock("i")}>+</button>
+                                    </div>
+                                    <p className={"text-sm text-slate-600"}>Only <span
+                                        className={"text-warning"}>{stock} items</span> left!<br/>{`Don't`} miss it!</p>
+                                </div>
+                                <div>
+                                    <Button typeName={"button"} className={"rounded-3xl py-2 px-5 btn-primary"}
+                                            name={"Add to Cart"}/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>Accusantium animi architecto cumque deserunt dicta dolorem doloribus dolorum error est facere,
-                        id laboriosam laborum molestiae natus neque nulla officia perferendis praesentium, quibusdam
-                        repellat sit temporibus velit veritatis voluptate, voluptatem.
-                    </div>
-                    <div>Aspernatur assumenda blanditiis consequuntur culpa doloribus enim ex id laboriosam, magni
-                        necessitatibus nihil numquam odio officia quaerat quam quas quasi sit. Commodi dolorum error
-                        labore magnam? Debitis eos expedita nisi.
-                    </div>
-                    <div>Ab adipisci asperiores consequuntur dignissimos ducimus ea facere facilis, harum illum magnam
-                        maxime minus molestiae, officiis, pariatur perferendis quaerat quam quas quia quisquam ratione
-                        sapiente similique totam ut velit veniam.
-                    </div>
-                    <div>Animi expedita id provident soluta totam. Asperiores excepturi hic iure nemo quia. Accusantium
-                        debitis dolor dolores facilis in maxime modi molestiae nisi, nobis perspiciatis praesentium
-                        quasi quia quibusdam ratione tempora?
-                    </div>
-                    <div>A aliquam aperiam atque beatae consequuntur dolor est labore, libero maxime nemo nobis placeat
-                        porro quia reiciendis repellat repellendus vero vitae. Beatae dolore doloribus eaque ex rem
-                        sequi, tempore unde.
-                    </div>
-                    <div>Accusantium beatae dignissimos eaque eum in itaque, obcaecati qui sunt tenetur! A commodi
-                        dolorum eaque est iusto laudantium magnam molestias, nulla numquam odit quod reprehenderit sed
-                        tempora ullam voluptate voluptatibus.
-                    </div>
-                    <div>Alias aspernatur commodi, cum doloribus esse exercitationem expedita harum impedit in magnam
-                        modi molestias nemo neque, nesciunt obcaecati officiis possimus quis ratione rerum sunt suscipit
-                        unde ut velit, voluptatem voluptates.
-                    </div>
-                    <div>Aperiam autem cumque ducimus eaque eligendi ex fugit libero nam non pariatur repellendus
-                        tempora, vero vitae. Impedit in ipsa iusto laboriosam nam quidem reiciendis? Eius fuga illum
-                        perferendis qui tempore!
-                    </div>
-                    <div>Consequatur magnam minus quam reiciendis. Ab aliquid aut culpa cum cumque deserunt dicta
-                        dignissimos eaque enim in iure magni, mollitia nam nesciunt optio porro quam quos reiciendis
-                        tempora totam velit?
-                    </div>
-                    <div>Eligendi error est excepturi explicabo ipsum nostrum odit officiis quia rem repellendus. At
-                        atque commodi cumque, ex facilis id illum ipsum sed sunt temporibus totam ullam ut veniam
-                        voluptatibus voluptatum!
-                    </div>
-                    <div>Ad aliquam autem dicta eius fuga inventore qui quos voluptatum? Autem consectetur corporis
-                        cumque eius odio officiis optio quaerat reiciendis, repudiandae vitae? Cumque distinctio
-                        doloremque, ea excepturi itaque natus quia!
-                    </div>
-                    <div>Architecto eius fuga voluptas? Cumque hic in nisi odit pariatur quisquam tenetur voluptates.
-                        Eos error esse itaque, natus non praesentium quam qui voluptatum. Eius libero maiores pariatur
-                        perspiciatis quo temporibus.
-                    </div>
-                    <div>Atque consectetur eveniet explicabo fugiat impedit, ipsam maiores possimus sed vel voluptate.
-                        Alias animi facilis fugiat iste laboriosam minus mollitia odit porro quasi, quibusdam
-                        repellendus rerum similique sit? Fugiat, ipsum?
-                    </div>
-                    <div>A amet architecto commodi consequatur dolore excepturi reiciendis velit veniam, voluptatibus
-                        voluptatum? Accusamus adipisci aspernatur aut corporis dicta doloribus exercitationem illum
-                        minus nemo nobis nulla omnis, possimus quam voluptate voluptatem.
-                    </div>
-                    <div>Distinctio doloribus earum expedita ipsa laboriosam numquam quaerat quam quidem, voluptatem!
-                        Alias aliquam, dolore eaque eos facilis, id illum ipsa libero modi nam quaerat quam sed velit!
-                        Impedit, odio, quam.
-                    </div>
-                    <div>Aliquam aspernatur atque autem, cupiditate ea eius est hic inventore ipsa iusto labore,
-                        laboriosam neque nihil nobis non, officiis perferendis perspiciatis quas quasi quos ratione rem
-                        rerum veritatis vero vitae!
-                    </div>
-                    <div>A aperiam autem consequuntur corporis, debitis distinctio dolore error excepturi ipsam minima
-                        nemo omnis totam ullam vel voluptas? Aspernatur doloremque ducimus eum illo non perferendis quam
-                        reiciendis sint tempore vero!
+                    {/*Line after user interactions*/}
+                    <div className={"w-full h-[2px] bg-slate-100"}></div>
+                    {/*Description*/}
+                    <div className={"my-4 flex flex-col gap-8 px-2"}>
+                        {/*Top*/}
+                        <div className={"flex flex-col gap-4"}>
+                            <h1 className={"text-slate-600 font-medium"}>Tittle</h1>
+                            <div className={"flex items-center gap-3"}>
+                                <div className={"text-slate-400"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, atque debitis
+                                    deleniti, dolorum esse eveniet impedit in laboriosam modi nesciunt nihil nulla
+                                    numquam quidem quis quos rem sapiente, sed sunt? Aliquam aut dolore doloremque ea eos harum ipsam maiores modi nemo odit officia omnis pariatur, praesentium qui quo recusandae tempore voluptatum? Commodi dolores
+                                    laudantium nemo nulla officiis quasi similique suscipit. Animi atque delectus distinctio dolor dolorum eaque, eius eos incidunt ipsa labore
+                                    laudantium magnam nihil nostrum numquam odio odit perferendis perspiciatis provident
+                                    quisquam quod ratione repellat similique suscipit veniam veritatis.
+                                </div>
+                            </div>
+                        </div>
+                        {/*Middle*/}
+                        <div className={"flex flex-col gap-4"}>
+                            <h1 className={"text-slate-600 font-medium"}>Tittle</h1>
+                            <div className={"flex items-center gap-3"}>
+                                <div className={"text-slate-400"}>Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit. Architecto, atque debitis
+                                    deleniti, dolorum esse eveniet impedit in laboriosam modi nesciunt nihil nulla
+                                    numquam quidem quis quos rem sapiente, sed sunt? Aliquam aut dolore doloremque ea
+                                    eos harum ipsam maiores modi nemo odit officia omnis pariatur, praesentium qui quo
+                                    recusandae tempore voluptatum? Commodi dolores
+                                    laudantium nemo nulla officiis quasi similique suscipit. Animi atque delectus
+                                    distinctio dolor dolorum eaque, eius eos incidunt ipsa labore
+                                    laudantium magnam nihil nostrum numquam odio odit perferendis perspiciatis provident
+                                    quisquam quod ratione repellat similique suscipit veniam veritatis.
+                                </div>
+                            </div>
+                        </div>
+                        {/*Bottom*/}
+                        <div className={"flex flex-col gap-4 font-medium"}>
+                            <h1 className={"text-slate-600"}>Tittle</h1>
+                            <div className={"flex items-center gap-3"}>
+                                <div className={"text-slate-400"}>Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit. Architecto, atque debitis
+                                    deleniti, dolorum esse eveniet impedit in laboriosam modi nesciunt nihil nulla
+                                    numquam quidem quis quos rem sapiente, sed sunt? Aliquam aut dolore doloremque ea
+                                    eos harum ipsam maiores modi nemo odit officia omnis pariatur, praesentium qui quo
+                                    recusandae tempore voluptatum? Commodi dolores
+                                    laudantium nemo nulla officiis quasi similique suscipit. Animi atque delectus
+                                    distinctio dolor dolorum eaque, eius eos incidunt ipsa labore
+                                    laudantium magnam nihil nostrum numquam odio odit perferendis perspiciatis provident
+                                    quisquam quod ratione repellat similique suscipit veniam veritatis.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

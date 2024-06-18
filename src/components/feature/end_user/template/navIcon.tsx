@@ -36,14 +36,13 @@ export default function NavIcon() {
                 </div>
             )}
             <Image src={"/assets/img/notification.png"} alt={"notification"} width={22} height={22} className={"cursor-pointer"}/>
-            <div className={"relative cursor-pointer"}>
+            <div className={"relative cursor-pointer"} onClick={() => setIsCartOpen((prevState) => !prevState)}>
                 <Image
                     src={"/assets/img/cart.png"}
                     alt={"cart"}
                     width={22}
                     height={22}
                     className={"cursor-pointer"}
-                    onClick={() => setIsCartOpen((prevState) => !prevState)}
                 />
                 <span className={"absolute -top-4 -right-4 w-6 h-6 rounded-full bg-secondary text-white flex items-center justify-center text-sm"}>2</span>
             </div>
