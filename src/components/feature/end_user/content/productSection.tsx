@@ -1,4 +1,4 @@
-import ProductList from "@/components/components/productList/listProduct";
+import ProductList from "@/components/components/end_user/productList/listProduct";
 import { Key } from "react";
 
 export default function ProductSection(props: {

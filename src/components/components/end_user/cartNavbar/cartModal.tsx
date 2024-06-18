@@ -1,6 +1,6 @@
 "use client"
 import Button from "@/components/tokens/button";
-import CartItem from "@/components/components/cartNavbar/cartItem";
+import CartItem from "@/components/components/end_user/cartNavbar/cartItem";
 
 export default function CartModal(){
     // temporary

@@ -1,5 +1,5 @@
 import {getCategories} from "@/data/category";
-import ListCategory from "@/components/components/categoriesList/listCategory";
+import ListCategory from "@/components/components/end_user/categoriesList/listCategory";
 
 export default function CategoriesSection() {
     const data = getCategories()

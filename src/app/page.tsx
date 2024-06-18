@@ -1,6 +1,6 @@
-import Slider from "@/components/feature/slider";
-import ProductSection from "@/components/feature/productSection";
-import CategoriesSection from "@/components/feature/categoriesSection";
+import Slider from "@/components/feature/end_user/content/slider";
+import ProductSection from "@/components/feature/end_user/content/productSection";
+import CategoriesSection from "@/components/feature/end_user/content/categoriesSection";
 import {getProducts} from "@/data/productList";
 
 export default function HomePage() {

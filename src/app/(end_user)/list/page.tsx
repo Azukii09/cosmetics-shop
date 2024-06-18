@@ -1,8 +1,8 @@
 import Button from "@/components/tokens/button";
 import Image from "next/image";
-import ProductSection from "@/components/feature/productSection";
+import ProductSection from "@/components/feature/end_user/content/productSection";
 import {getProducts} from "@/data/productList";
-import FilterSection from "@/components/feature/filterSection";
+import FilterSection from "@/components/feature/end_user/content/filterSection";
 
 export default function ListPage() {
     return (
