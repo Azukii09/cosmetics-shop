@@ -3,7 +3,7 @@ import Image from "next/image";
 import React from "react";
 import Link from "next/dist/client/link";
 import {useRouter} from "next/navigation";
-import CartModal from "@/components/components/cartNavbar/cartModal";
+import CartModal from "@/components/components/end_user/cartNavbar/cartModal";
 
 export default function NavIcon() {
     const router = useRouter();

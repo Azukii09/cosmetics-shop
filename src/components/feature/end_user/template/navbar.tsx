@@ -1,8 +1,8 @@
 "use client"
-import MenuMobile from "@/components/components/menuMobile";
+import MenuMobile from "@/components/components/end_user/menuMobile";
 import Logo from "@/components/tokens/logo";
-import NavSearchBar from "@/components/feature/navSearchBar";
-import NavIcon from "@/components/feature/navIcon";
+import NavSearchBar from "@/components/feature/end_user/template/navSearchBar";
+import NavIcon from "@/components/feature/end_user/template/navIcon";
 import {getNavbar} from "@/data/navbar";
 import ListComponent from "@/components/components/listComponent";
 import {useEffect, useState} from "react";
