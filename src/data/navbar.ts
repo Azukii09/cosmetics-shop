@@ -11,8 +11,8 @@ const navData = [
     },
     {
         id:3,
-        name:"Deals",
-        linkTo: "/deals"
+        name:"Categories",
+        linkTo: "/categories"
     },
     {
         id:4,

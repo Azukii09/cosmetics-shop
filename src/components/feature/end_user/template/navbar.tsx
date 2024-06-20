@@ -41,7 +41,7 @@ export default function Navbar(){
                     {/*Left*/}
                     <div className={"w-1/3 xl:w-1/2 flex items-center justify-between"}>
                         <Logo/>
-                        <ListComponent list={getNavbar()} ulClass={"hidden xl:flex"} itemClass={"px-4"}/>
+                        <ListComponent list={getNavbar()} ulClass={"hidden xl:flex"} itemClass={"relative w-fit mx-4 block after:block after:content-[''] after:absolute after:h-[3px] after:bg-secondary after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-left"}/>
                     </div>
                     {/*Right*/}
                     <div className={"w-2/3 flex items-center justify-between gap-8 xl:w-1/2"}>
