@@ -1,8 +1,8 @@
 const products = [
     {
         id:1,
-        fImg:"https://images.pexels.com/photos/7670761/pexels-photo-7670761.jpeg?auto=compress&cs=tinysrgb&w=800",
-        sImg:"https://images.pexels.com/photos/2688991/pexels-photo-2688991.jpeg?auto=compress&cs=tinysrgb&w=800",
+        fImg:"/assets/img/products/gp-1.png",
+        sImg:"/assets/img/products/gp-2.png",
         productName:"Girls Powder",
         price:49,
         description:"Introducing our Girls' Powder, a touch of magic in every compact. Designed for youthful skin, it offers a silky-smooth finish with a hint of shimmer for a natural glow. Available in a range of shades to suit every girl's unique style, it's gentle and easy to apply, perfect for daily use. Elevate her beauty routine with our playful and practical powder, where beauty meets fun in one delightful package.",
@@ -37,8 +37,8 @@ const products = [
     },
     {
         id:5,
-        fImg:"https://images.pexels.com/photos/7670761/pexels-photo-7670761.jpeg?auto=compress&cs=tinysrgb&w=800",
-        sImg:"https://images.pexels.com/photos/2688991/pexels-photo-2688991.jpeg?auto=compress&cs=tinysrgb&w=800",
+        fImg:"/assets/img/products/gp-1.png",
+        sImg:"/assets/img/products/gp-2.png",
         productName:"Girls Powder",
         price:49,
         description:"Introducing our Girls' Powder, a touch of magic in every compact. Designed for youthful skin, it offers a silky-smooth finish with a hint of shimmer for a natural glow. Available in a range of shades to suit every girl's unique style, it's gentle and easy to apply, perfect for daily use. Elevate her beauty routine with our playful and practical powder, where beauty meets fun in one delightful package.",
