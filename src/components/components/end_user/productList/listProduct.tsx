@@ -12,20 +12,20 @@ export default function ProductList(props: {
 }) {
     return(
         <Link href={props.href} className={"w-full flex flex-col gap-4 sm:w-[45%] lg:w-[22%]"}>
-            <div className={"relative w-full h-72"}>
+            <div className={"relative w-full h-72 group"}>
                 <Image
                     src={props.fImg}
                     alt={"cover img"}
                     fill
                     sizes="25vw"
-                    className={"absolute object-cover rounded-md z-10 hover:opacity-0 transition-opacity duration-500"}
+                    className={"absolute object-cover rounded-md z-10 group-hover:opacity-0 transition-opacity duration-500"}
                 />
                 <Image
                     src={props.sImg}
                     alt={"second layer img"}
                     fill
                     sizes="25vw"
-                    className={"absolute object-cover rounded-md"}
+                    className={"absolute opacity-0 group-hover:opacity-100 object-cover rounded-md transition-opacity duration-500"}
                 />
             </div>
             <div className={"flex justify-between"}>
