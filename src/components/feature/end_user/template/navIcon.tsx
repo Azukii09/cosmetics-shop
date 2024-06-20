@@ -22,7 +22,7 @@ export default function NavIcon() {
     return(
         <div className="flex items-center gap-4 xl:gap-6 relative">
             <Image
-                src={"/assets/img/profile.png"}
+                src={"/assets/img/static/profile.png"}
                 alt={"profile"}
                 width={22}
                 height={22}
@@ -35,10 +35,10 @@ export default function NavIcon() {
                     <div className={"mt-2 cursor-pointer"}>Log out</div>
                 </div>
             )}
-            <Image src={"/assets/img/notification.png"} alt={"notification"} width={22} height={22} className={"cursor-pointer"}/>
+            <Image src={"/assets/img/static/notification.png"} alt={"notification"} width={22} height={22} className={"cursor-pointer"}/>
             <div className={"relative cursor-pointer"} onClick={() => setIsCartOpen((prevState) => !prevState)}>
                 <Image
-                    src={"/assets/img/cart.png"}
+                    src={"/assets/img/static/cart.png"}
                     alt={"cart"}
                     width={22}
                     height={22}
