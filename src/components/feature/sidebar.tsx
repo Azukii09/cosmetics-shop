@@ -1,6 +1,7 @@
 "use client"
 import React from "react";
 import ListComponent from "@/components/components/listComponent";
+import Logo from "@/components/tokens/logo";
 
 export default function Sidebar(){
     const menu = [
@@ -31,12 +32,13 @@ export default function Sidebar(){
         },
     ]
     return (
-        <aside className={"w-64 bg-slate-600 overflow-y-auto"}>
+        <section className={"w-64 overflow-y-auto flex flex-col items-center justify-center"}>
+            <Logo link={"/admin/dashboard"}/>
             <ListComponent
                 ulClass={"mt-6"}
-                itemClass={"relative px-6 py-3 text-white font-bold"}
+                itemClass={"relative px-6 py-3 text-primary font-bold"}
                 list={menu}
             />
-        </aside>
+        </section>
     )
 }

@@ -33,14 +33,14 @@ export default function Navbar(){
                     "h-20 font-medium text-secondary px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative"}>
                 {/*Mobile*/}
                 <div className="h-full flex items-center justify-between md:hidden">
-                    <Logo/>
+                    <Logo link={"/"}/>
                     <MenuMobile/>
                 </div>
                 {/*bigger screen*/}
                 <div className={"hidden md:flex items-center h-full justify-between gap-8"}>
                     {/*Left*/}
                     <div className={"w-1/3 xl:w-1/2 flex items-center justify-between"}>
-                        <Logo/>
+                        <Logo link={"/"}/>
                         <ListComponent list={getNavbar()} ulClass={"hidden xl:flex"} itemClass={"relative w-fit mx-4 block after:block after:content-[''] after:absolute after:h-[3px] after:bg-secondary after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-500 after:origin-left"}/>
                     </div>
                     {/*Right*/}
