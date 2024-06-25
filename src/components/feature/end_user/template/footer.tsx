@@ -13,7 +13,7 @@ export default function Footer(){
             <div className={"flex flex-col md:flex-row justify-between gap-24"}>
                 {/*left*/}
                 <div className={" w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8"}>
-                    <Logo/>
+                    <Logo link={"/"}/>
                     <p>
                         123 Jenderal Sudirman Street<br/>
                         Central Jakarta, DKI Jakarta 10110<br/>
@@ -22,10 +22,10 @@ export default function Footer(){
                     <span className={"font-semibold"}>test@mail.com</span>
                     <span className={"font-semibold"}>+6281234567890</span>
                     <div className={"flex gap-6"}>
-                        <Image src={"/assets/img/facebook.png"} alt="" width={16} height={16} />
-                        <Image src={"/assets/img/instagram.png"} alt="" width={16} height={16} />
-                        <Image src={"/assets/img/youtube.png"} alt="" width={16} height={16} />
-                        <Image src={"/assets/img/x.png"} alt="" width={16} height={16} />
+                        <Image src={"/assets/img/static/facebook.png"} alt="" width={16} height={16} />
+                        <Image src={"/assets/img/static/instagram.png"} alt="" width={16} height={16} />
+                        <Image src={"/assets/img/static/youtube.png"} alt="" width={16} height={16} />
+                        <Image src={"/assets/img/static/x.png"} alt="" width={16} height={16} />
                     </div>
                 </div>
                 {/*center*/}
@@ -78,11 +78,11 @@ export default function Footer(){
                     </div>
                     <span className={"font-semibold"}>Secure Payment</span>
                     <div className={" flex justify-between"}>
-                        <Image src={"/assets/img/discover.png"} alt="" width={40} height={20} />
-                        <Image src={"/assets/img/skrill.png"} alt="" width={40} height={20} />
-                        <Image src={"/assets/img/paypal.png"} alt="" width={40} height={20} />
-                        <Image src={"/assets/img/mastercard.png"} alt="" width={40} height={20} />
-                        <Image src={"/assets/img/visa.png"} alt="" width={40} height={20} />
+                        <Image src={"/assets/img/static/discover.png"} alt="" width={40} height={20} />
+                        <Image src={"/assets/img/static/skrill.png"} alt="" width={40} height={20} />
+                        <Image src={"/assets/img/static/paypal.png"} alt="" width={40} height={20} />
+                        <Image src={"/assets/img/static/mastercard.png"} alt="" width={40} height={20} />
+                        <Image src={"/assets/img/static/visa.png"} alt="" width={40} height={20} />
                     </div>
                 </div>
             </div>

@@ -23,7 +23,7 @@ export default function NavSearchBar() {
             />
             <button type="submit">
                 <Image
-                    src={"/assets/img/search.png"}
+                    src={"/assets/img/static/search.png"}
                     alt={"search"}
                     width={16}
                     height={16}

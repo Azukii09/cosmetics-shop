@@ -20,7 +20,7 @@ export default function ListPage() {
                 </div>
                 {/*Image container*/}
                 <div className={"relative w-1/3"}>
-                    <Image src={"/assets/img/woman.png"} alt={"woman campaign"} fill className={"object-contain"}/>
+                    <Image src={"/assets/img/static/woman.png"} alt={"woman campaign"} fill className={"object-contain"}/>
                 </div>
             </div>
             {/*Filter*/}

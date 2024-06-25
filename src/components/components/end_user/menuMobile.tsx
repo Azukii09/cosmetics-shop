@@ -10,7 +10,7 @@ export default function MenuMobile() {
     return(
         <div>
             <Image
-                src={"/assets/img/menu.png"}
+                src={"/assets/img/static/menu.png"}
                 alt={"menu"}
                 width={28}
                 height={28}
