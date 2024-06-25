@@ -13,7 +13,7 @@ export default function Footer(){
             <div className={"flex flex-col md:flex-row justify-between gap-24"}>
                 {/*left*/}
                 <div className={" w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8"}>
-                    <Logo/>
+                    <Logo link={"/"}/>
                     <p>
                         123 Jenderal Sudirman Street<br/>
                         Central Jakarta, DKI Jakarta 10110<br/>
