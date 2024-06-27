@@ -7,13 +7,17 @@ export default function TableComponent(props: {
     title: any[];
     body: any[];
 }) {
+    // for set current page state
     const [currentPage, setCurrentPage] = useState(1);
+    // for set how many row for listed data
     const pageSize = 5;
 
+    // actions for change page states
     const onPageChange = (page:number) => {
         setCurrentPage(page);
     };
 
+    // for show data that listed
     const paginate = (items:any[], pageNumber:number, pageSize:number) => {
         const startIndex = (pageNumber - 1) * pageSize;
         return items.slice(startIndex, startIndex + pageSize);

@@ -7,8 +7,13 @@ export default function PaginationComponent(props: {
     currentPage:number,
     onPageChange:any,
 }){
+    // check current page pagination state
     const [currentPage, setCurrentPage] = useState(1);
+
+    // count the page number for data
     const pagesCount = Math.ceil(props.item / props.pageSize); // 100/10
+
+    // actions for set current and active page
     function handlePageChange(page:number,status:"next"|"prev"|"none") {
         if(status === "next" && (page+1 <= pagesCount)){
             setCurrentPage(page+1);
