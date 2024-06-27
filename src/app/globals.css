@@ -5,9 +5,12 @@
 .btn{
     @apply py-1 px-2 rounded-xl shadow-sm text-base
 }
+.btn-sm{
+    @apply py-1 px-2 rounded-xl shadow-sm text-sm
+}
 
 .btn-primary{
-    @apply bg-primary text-white hover:bg-secondary;
+    @apply bg-primary text-white hover:bg-contras hover:text-secondary;
 }
 .btn-success{
     @apply bg-success text-slate-500 hover:bg-green-400 hover:text-slate-100;
