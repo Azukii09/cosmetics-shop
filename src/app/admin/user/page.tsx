@@ -1,4 +1,7 @@
+"use client"
 import TableComponent from "@/components/components/tableComponent";
+import {useState} from "react";
+import Button from "@/components/tokens/button";
 
 export default function UserMasterPage() {
     const title = [
@@ -147,6 +150,8 @@ export default function UserMasterPage() {
             description:"Item 21"
         },
     ]
+
+    const [value, setValue] = useState(5);
     return (
         <div className="container p-8">
             <div className={"bg-white p-6 rounded-md"}>
@@ -156,8 +161,23 @@ export default function UserMasterPage() {
                 >
                     User Master
                 </h4>
+                <div className={"p-4 flex justify-between"}>
+                    <select
+                        value={value}
+                        onChange={(e) => {
+                            setValue(Number(e.target.value));
+                        }}
+                        className={"block w-20 shadow-sm shadow-info mt-1 font-semibold text-secondary form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple py-2 px-4 rounded-xl"}
+                    >
+                        <option value={5}>5</option>
+                        <option value={10}>10</option>
+                        <option value={15}>15</option>
+                        <option value={20}>20</option>
+                    </select>
+                    <Button typeName={"button"} className={"btn btn-primary w-16"} name={"Add"}/>
+                </div>
                 {/*Content Table*/}
-                <TableComponent title={title} body={tableBody} />
+                <TableComponent title={title} body={tableBody} pageSize={value}/>
             </div>
         </div>
     );

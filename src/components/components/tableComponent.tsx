@@ -6,11 +6,12 @@ import {useState} from "react";
 export default function TableComponent(props: {
     title: any[];
     body: any[];
+    pageSize: number;
 }) {
     // for set current page state
     const [currentPage, setCurrentPage] = useState(1);
     // for set how many row for listed data
-    const pageSize = 5;
+    const pageSize = props.pageSize;
 
     // actions for change page states
     const onPageChange = (page:number) => {
@@ -23,6 +24,7 @@ export default function TableComponent(props: {
         return items.slice(startIndex, startIndex + pageSize);
     };
     const data = paginate(props.body,currentPage,pageSize)
+    console.log(data)
     return (
         <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
             <div className="w-full overflow-x-auto">
