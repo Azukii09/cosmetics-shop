@@ -24,7 +24,6 @@ export default function TableComponent(props: {
         return items.slice(startIndex, startIndex + pageSize);
     };
     const data = paginate(props.body,currentPage,pageSize)
-    console.log(data)
     return (
         <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
             <div className="w-full overflow-x-auto">
