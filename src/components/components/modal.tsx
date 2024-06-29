@@ -1,4 +1,3 @@
-import Button from "@/components/tokens/button";
 import React, {ReactNode} from "react";
 
 export default function ModalTest(props: {
@@ -42,9 +41,6 @@ export default function ModalTest(props: {
                                     <h3 className="text-base font-semibold leading-6 text-gray-900">
                                         {props.title}
                                     </h3>
-                                    <div className="mt-2">
-                                        {props.content}
-                                    </div>
                                 </div>
                                 <button onClick={props.handler}>
                                     <svg xmlns="http://www.w3.org/2000/svg"
@@ -55,13 +51,11 @@ export default function ModalTest(props: {
                                     </svg>
                                 </button>
                             </div>
+                            <div className={"w-full"}>
+                                {props.content}
+                            </div>
                         </div>
-                        <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                            <Button typeName={"button"} className={"btn btn-primary mx-2"} name={"Submit"}
-                                    handler={props.handler}/>
-                            <Button typeName={"button"} className={"btn btn-line mx-2"} name={"Cancel"}
-                                    handler={props.handler}/>
-                        </div>
+
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 "use client"
 import TableComponent from "@/components/components/tableComponent";
-import {useState} from "react";
+import React, {useState} from "react";
 import Button from "@/components/tokens/button";
 import Modal from "@/components/components/modal";
 
@@ -183,7 +183,17 @@ export default function UserMasterPage() {
                     handler={()=>setAddModal(!modalAdd)}
                     content={
                         // content component
-                        <div className={"text-xl font-bold text-info"}>tes lalala</div>
+                        <div className={""}>
+                            <div className="mt-2 pl-4">
+                                ini nanti form
+                            </div>
+                            <div className="py-3 flex gap-4 flex-row-reverse">
+                                <Button typeName={"button"} className={"btn btn-primary"} name={"Submit"}
+                                        handler={()=>setAddModal(!modalAdd)}/>
+                                <Button typeName={"button"} className={"btn btn-line "} name={"Cancel"}
+                                        handler={()=>setAddModal(!modalAdd)}/>
+                            </div>
+                        </div>
                     }/>
             )}
 
