@@ -157,15 +157,32 @@ export default function UserMasterPage() {
             description:"Item 22"
         },
     ]
-    const [modal,setModal] = useState(false)
+    const [modalAdd,setAddModal] = useState(false)
     const [value, setValue] = useState(5);
+    const button = [
+        {
+            id:1,
+            component:<Button typeName={"button"} className={"btn-sm btn-primary"} name={"detail"}/>,
+        },
+        {
+            id:2,
+            component:<Button typeName={"button"} className={"btn-sm btn-warning"} name={"edit"}/>,
+        },
+        {
+            id:3,
+            component:<Button typeName={"button"} className={"btn-sm btn-danger"} name={"delete"}/>,
+        },
+
+    ]
     return (
         <>
-            {modal && (
+            {/*this is for add data modal*/}
+            {modalAdd && (
                 <Modal
                     title={"Tes"}
-                    handler={()=>setModal(!modal)}
+                    handler={()=>setAddModal(!modalAdd)}
                     content={
+                        // content component
                         <div className={"text-xl font-bold text-info"}>tes lalala</div>
                     }/>
             )}
@@ -192,10 +209,16 @@ export default function UserMasterPage() {
                             <option value={20}>20</option>
                         </select>
                         <Button typeName={"button"} className={"btn btn-primary w-16"} name={"Add"}
-                                handler={() => setModal(true)}/>
+                                handler={() => setAddModal(true)}/>
                     </div>
                     {/*Content Table*/}
-                    <TableComponent title={title} body={tableBody} pageSize={value}/>
+                    <TableComponent
+                        title={title}
+                        body={tableBody}
+                        pageSize={value}
+                        action={true}
+                        actionsButton={button}
+                    />
                 </div>
             </div>
         </>

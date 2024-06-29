@@ -1,5 +1,4 @@
 "use client"
-import Button from "@/components/tokens/button";
 import PaginationComponent from "@/components/components/paginationsComponent";
 import {useState} from "react";
 
@@ -7,6 +6,8 @@ export default function TableComponent(props: {
     title: any[];
     body: any[];
     pageSize: number;
+    actionsButton: any[];
+    action:boolean;
 }) {
     // for set current page state
     const [currentPage, setCurrentPage] = useState(1);
@@ -35,9 +36,11 @@ export default function TableComponent(props: {
                             {props.title.map((item:{id:number, name:string}) => (
                                 <th className="px-4 py-3" key={item.id}>{item.name}</th>
                             ))}
-                            <th className="px-4 py-3">
-                                <span className={"flex justify-center"}>Actions</span>
-                            </th>
+                            {props.action && (
+                                <th className="px-4 py-3">
+                                    <span className={"flex justify-center"}>Actions</span>
+                                </th>
+                            )}
                         </tr>
                     </thead>
                     <tbody
@@ -62,11 +65,15 @@ export default function TableComponent(props: {
                                 <div>{item.description}
                                 </div>
                             </td>
-                            <td className="px-4 py-3 text-sm flex gap-2 justify-center">
-                                <Button typeName={"button"} className={"btn-sm btn-primary"} name={"detail"}/>
-                                <Button typeName={"button"} className={"btn-sm btn-warning"} name={"edit"}/>
-                                <Button typeName={"button"} className={"btn-sm btn-danger"} name={"delete"}/>
-                            </td>
+                            {props.action && (
+                                <td className="px-4 py-3 text-sm flex gap-2 justify-center">
+                                    {props.actionsButton.map((item:any) => (
+                                        <div key={item.id}>
+                                            {item.component}
+                                        </div>
+                                    ))}
+                                </td>
+                            )}
                         </tr>
                     ))}
                     </tbody>

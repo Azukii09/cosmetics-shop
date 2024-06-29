@@ -57,7 +57,7 @@ export default function ModalTest(props: {
                             </div>
                         </div>
                         <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                            <Button typeName={"button"} className={"btn btn-success mx-2"} name={"Submit"}
+                            <Button typeName={"button"} className={"btn btn-primary mx-2"} name={"Submit"}
                                     handler={props.handler}/>
                             <Button typeName={"button"} className={"btn btn-line mx-2"} name={"Cancel"}
                                     handler={props.handler}/>
