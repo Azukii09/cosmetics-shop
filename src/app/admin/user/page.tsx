@@ -3,6 +3,7 @@ import TableComponent from "@/components/components/tableComponent";
 import React, {useState} from "react";
 import Button from "@/components/tokens/button";
 import Modal from "@/components/components/modal";
+import InputForm from "@/components/components/inputForm";
 
 export default function UserMasterPage() {
     const title = [
@@ -179,20 +180,23 @@ export default function UserMasterPage() {
             {/*this is for add data modal*/}
             {modalAdd && (
                 <Modal
-                    title={"Tes"}
+                    title={"Create New Role"}
                     handler={()=>setAddModal(!modalAdd)}
                     content={
                         // content component
                         <div className={""}>
-                            <div className="mt-2 pl-4">
-                                ini nanti form
-                            </div>
-                            <div className="py-3 flex gap-4 flex-row-reverse">
-                                <Button typeName={"button"} className={"btn btn-primary"} name={"Submit"}
-                                        handler={()=>setAddModal(!modalAdd)}/>
-                                <Button typeName={"button"} className={"btn btn-line "} name={"Cancel"}
-                                        handler={()=>setAddModal(!modalAdd)}/>
-                            </div>
+                            <form>
+                                <div className="mt-2 pl-4">
+                                    <InputForm labelName={"Role Name"} type={"text"} placeholder={"role name"}/>
+                                    <InputForm labelName={"Description"} type={"text"} placeholder={"Description"}/>
+                                </div>
+                                <div className="py-3 flex gap-4 flex-row-reverse">
+                                    <Button typeName={"button"} className={"btn btn-primary"} name={"Create"}
+                                            handler={() => setAddModal(!modalAdd)}/>
+                                    <Button typeName={"button"} className={"btn btn-line "} name={"Cancel"}
+                                            handler={() => setAddModal(!modalAdd)}/>
+                                </div>
+                            </form>
                         </div>
                     }/>
             )}
