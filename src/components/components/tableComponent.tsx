@@ -31,7 +31,7 @@ export default function TableComponent(props: {
                 <table className="w-full whitespace-no-wrap">
                     <thead>
                         <tr
-                            className="text-xs font-semibold tracking-wide text-left text-info uppercase border-b bg-gray-50 "
+                            className="text-xs font-semibold tracking-wide text-left text-info uppercase border-b bg-gray-50"
                         >
                             {props.title.map((item:{id:number, name:string}) => (
                                 <th className="px-4 py-3" key={item.id}>{item.name}</th>
@@ -48,23 +48,11 @@ export default function TableComponent(props: {
                     >
                     {data.map((item:any,index) => (
                         <tr className="text-gray-700" key={item.id}>
-                            <td className="px-4 py-3">
-                                {index+1+((currentPage-1)*pageSize)}
-                            </td>
-                            <td className="px-4 py-3 text-sm">
-                                {item.name}
-                            </td>
-                            <td className="px-4 py-3 text-xs">
-                                <span
-                                    className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full"
-                                >
-                                  {item.status}
-                                </span>
-                            </td>
-                            <td className="px-4 py-3 text-xs">
-                                <div>{item.description}
-                                </div>
-                            </td>
+                            {Object.entries(item).map((k:any,i) => (
+                                <td className={"px-4 py-3"} key={i}>
+                                    {i==0?(index + 1 + ((currentPage - 1) * pageSize)):k[1]}
+                                </td>
+                            ))}
                             {props.action && (
                                 <td className="px-4 py-3 text-sm flex gap-2 justify-center">
                                     {props.actionsButton.map((item:any) => (

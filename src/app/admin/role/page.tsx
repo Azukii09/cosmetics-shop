@@ -3,9 +3,9 @@ import TableComponent from "@/components/components/tableComponent";
 import React, {useState} from "react";
 import Button from "@/components/tokens/button";
 import Modal from "@/components/components/modal";
-import InputForm from "@/components/components/inputForm";
+import FormAddNewRole from "@/components/feature/admin_panel/content/role/formAddNewRole";
 
-export default function UserMasterPage() {
+export default function RoleMasterPage() {
     const title = [
         {
             id:1,
@@ -17,157 +17,73 @@ export default function UserMasterPage() {
         },
         {
             id:3,
-            name:"Status"
-        },
-        {
-            id:4,
             name:"Description"
         },
     ]
     const tableBody = [
         {
             id:1,
-            name:"Owner",
-            status:"active",
+            name:<span className={"w-36 flex"}>Role 1</span>,
             description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloremque magni, molestias nulla recusandae sapiente ullam veniam voluptatum. Commodi dolore dolores magni maxime minima quisquam quos sapiente vel, voluptas voluptatum!"
         },
         {
             id:2,
-            name:"HR",
-            status:"active",
+            name:<span className={"w-36 flex"}>Role 2</span>,
             description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloremque magni, molestias nulla recusandae sapiente ullam veniam voluptatum. Commodi dolore dolores magni maxime minima quisquam quos sapiente vel, voluptas voluptatum!"
         },
         {
             id:3,
-            name:"Accounting",
-            status:"active",
+            name:<span className={"w-36 flex"}>Role 3</span>,
             description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloremque magni, molestias nulla recusandae sapiente ullam veniam voluptatum. Commodi dolore dolores magni maxime minima quisquam quos sapiente vel, voluptas voluptatum!"
         },
         {
             id:4,
-            name:"Admin",
-            status:"active",
+            name:<span className={"w-36 flex"}>Role 4</span>,
             description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloremque magni, molestias nulla recusandae sapiente ullam veniam voluptatum. Commodi dolore dolores magni maxime minima quisquam quos sapiente vel, voluptas voluptatum!"
         },
         {
             id:5,
-            name:"Item 5",
-            status:"active",
-            description:"Item 5"
+            name:<span className={"w-36 flex"}>Role 5</span>,
+            description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloremque magni, molestias nulla recusandae sapiente ullam veniam voluptatum. Commodi dolore dolores magni maxime minima quisquam quos sapiente vel, voluptas voluptatum!"
         },
         {
             id:6,
-            name:"Item 6",
-            status:"active",
-            description:"Item 6"
+            name:<span className={"w-36 flex"}>Role 6</span>,
+            description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloremque magni, molestias nulla recusandae sapiente ullam veniam voluptatum. Commodi dolore dolores magni maxime minima quisquam quos sapiente vel, voluptas voluptatum!"
         },
         {
             id:7,
-            name:"Item 7",
-            status:"active",
-            description:"Item 7"
+            name:<span className={"w-36 flex"}>Role 7</span>,
+            description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloremque magni, molestias nulla recusandae sapiente ullam veniam voluptatum. Commodi dolore dolores magni maxime minima quisquam quos sapiente vel, voluptas voluptatum!"
         },
         {
             id:8,
-            name:"Item 8",
-            status:"active",
-            description:"Item 8"
+            name:<span className={"w-36 flex"}>Role 8</span>,
+            description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloremque magni, molestias nulla recusandae sapiente ullam veniam voluptatum. Commodi dolore dolores magni maxime minima quisquam quos sapiente vel, voluptas voluptatum!"
         },
         {
             id:9,
-            name:"Item 9",
-            status:"active",
-            description:"Item 9"
+            name:<span className={"w-36 flex"}>Role 9</span>,
+            description:"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloremque magni, molestias nulla recusandae sapiente ullam veniam voluptatum. Commodi dolore dolores magni maxime minima quisquam quos sapiente vel, voluptas voluptatum!"
         },
         {
-            id:10,
-            name:"Item 10",
-            status:"active",
-            description:"Item 10"
-        },
-        {
-            id:11,
-            name:"Item 11",
-            status:"active",
-            description:"Item 11"
-        },
-        {
-            id:12,
-            name:"Item 12",
-            status:"active",
-            description:"Item 12"
-        },
-        {
-            id:13,
-            name:"Item 13",
-            status:"active",
-            description:"Item 13"
-        },
-        {
-            id:14,
-            name:"Item 14",
-            status:"active",
-            description:"Item 14"
-        },
-        {
-            id:15,
-            name:"Item 15",
-            status:"active",
-            description:"Item 15"
-        },
-        {
-            id:16,
-            name:"Item 16",
-            status:"active",
-            description:"Item 16"
-        },
-        {
-            id:17,
-            name:"Item 17",
-            status:"active",
-            description:"Item 17"
-        },
-        {
-            id:18,
-            name:"Item 18",
-            status:"active",
-            description:"Item 18"
-        },
-        {
-            id:19,
-            name:"Item 19",
-            status:"active",
-            description:"Item 19"
-        },
-        {
-            id:20,
-            name:"Item 20",
-            status:"active",
-            description:"Item 20"
-        },
-        {
-            id:21,
-            name:"Item 21",
-            status:"active",
-            description:"Item 21"
-        },
-        {
-            id:22,
-            name:"Item 22",
-            status:"active",
-            description:"Item 22"
+            id: 10,
+            name: <span className={"w-36 flex"}>Role 10</span>,
+            description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi doloremque magni, molestias nulla recusandae sapiente ullam veniam voluptatum. Commodi dolore dolores magni maxime minima quisquam quos sapiente vel, voluptas voluptatum!"
+
         },
     ]
-    const [modalAdd,setAddModal] = useState(false)
+    const [modalAdd, setAddModal] = useState(false)
+    const [modalEdit, setEditModal] = useState(false)
     const [value, setValue] = useState(5);
     const button = [
         {
             id:1,
-            component:<Button typeName={"button"} className={"btn-sm btn-primary"} name={"detail"}/>,
+            component:<Button typeName={"button"} className={"btn-sm btn-primary"} name={"detail"} />,
         },
         {
             id:2,
-            component:<Button typeName={"button"} className={"btn-sm btn-warning"} name={"edit"}/>,
+            component:<Button typeName={"button"} className={"btn-sm btn-warning"} name={"edit"} handler={()=>setEditModal(true)}/>,
         },
         {
             id:3,
@@ -183,21 +99,16 @@ export default function UserMasterPage() {
                     title={"Create New Role"}
                     handler={()=>setAddModal(!modalAdd)}
                     content={
-                        // content component
-                        <div className={""}>
-                            <form>
-                                <div className="mt-2 pl-4">
-                                    <InputForm labelName={"Role Name"} type={"text"} placeholder={"role name"}/>
-                                    <InputForm labelName={"Description"} type={"text"} placeholder={"Description"}/>
-                                </div>
-                                <div className="py-3 flex gap-4 flex-row-reverse">
-                                    <Button typeName={"button"} className={"btn btn-primary"} name={"Create"}
-                                            handler={() => setAddModal(!modalAdd)}/>
-                                    <Button typeName={"button"} className={"btn btn-line "} name={"Cancel"}
-                                            handler={() => setAddModal(!modalAdd)}/>
-                                </div>
-                            </form>
-                        </div>
+                        <FormAddNewRole handleSubmit={() => setAddModal(false)}/>
+                    }/>
+            )}
+            {/*this is for add data modal*/}
+            {modalEdit && (
+                <Modal
+                    title={"Edit New Role"}
+                    handler={()=>setEditModal(!modalEdit)}
+                    content={
+                        <FormAddNewRole handleSubmit={() => setEditModal(false)}/>
                     }/>
             )}
 
