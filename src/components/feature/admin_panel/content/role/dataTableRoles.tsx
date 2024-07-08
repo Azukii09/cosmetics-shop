@@ -5,9 +5,15 @@ import Modal from "@/components/components/modal";
 import FormAddNewRole from "@/components/feature/admin_panel/content/role/formAddNewRole";
 import FormEditRole from "@/components/feature/admin_panel/content/role/formEditRole";
 
+type Roles = {
+    id:number,
+    name:string,
+    desc:string,
+}
+
 export default function DataTableRoles(props: {
+    roles: Roles[]
     title: any[];
-    body: any[];
     pageSize: number;
     action:boolean;
 }) {
@@ -22,14 +28,13 @@ export default function DataTableRoles(props: {
     };
 
     // for show data that listed
-    const paginate = (items:any[], pageNumber:number, pageSize:number) => {
+    const paginate = (items:Roles[], pageNumber:number, pageSize:number) => {
         const startIndex = (pageNumber - 1) * pageSize;
         return items.slice(startIndex, startIndex + pageSize);
     };
-    const data = paginate(props.body,currentPageRoles,pageSize)
+    const data = paginate(props.roles,currentPageRoles,pageSize)
 
     // handling edit modal
-    const [modalEdit, setEditModal] = useState(false)
 
     // handling modal add
     const [modalAdd, setAddModal] = useState(false)
@@ -42,16 +47,7 @@ export default function DataTableRoles(props: {
                     title={"Create New Role"}
                     handler={()=>setAddModal(!modalAdd)}
                     content={
-                        <FormAddNewRole handleSubmit={() => setAddModal(false)}/>
-                    }/>
-            )}
-            {/*this is for add data modal*/}
-            {modalEdit && (
-                <Modal
-                    title={"Edit New Role"}
-                    handler={()=>setEditModal(!modalEdit)}
-                    content={
-                        <FormEditRole handleSubmit={() => setEditModal(false)}/>
+                        <FormAddNewRole />
                     }/>
             )}
             <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
@@ -84,7 +80,7 @@ export default function DataTableRoles(props: {
                                 {props.action && (
                                     <td className="px-4 py-3 text-sm flex gap-2 justify-center">
                                         <Button typeName={"button"} className={"btn-sm btn-primary"} name={"detail"} />
-                                        <Button typeName={"button"} className={"btn-sm btn-warning"} name={"edit"} handler={() => setEditModal(false)}/>
+                                        <FormEditRole roles={props.roles} index={index+((currentPageRoles - 1) * pageSize)} />
                                         <Button typeName={"button"} className={"btn-sm btn-danger"} name={"delete"}/>
                                     </td>
                                 )}
@@ -97,13 +93,13 @@ export default function DataTableRoles(props: {
                     className="grid px-4 py-3 text-xs font-semibold tracking-wide text-info uppercase border-t bg-gray-50 sm:grid-cols-9"
                 >
                 <span className="flex items-center col-span-3">
-                  Showing {((currentPageRoles-1)*pageSize)+1} - {(((currentPageRoles-1)*pageSize)+pageSize)<= props.body.length? (((currentPageRoles-1)*pageSize)+pageSize):props.body.length} of {props.body.length}
+                  Showing {((currentPageRoles-1)*pageSize)+1} - {(((currentPageRoles-1)*pageSize)+pageSize)<= props.roles.length? (((currentPageRoles-1)*pageSize)+pageSize):props.roles.length} of {props.roles.length}
                 </span>
                     <span className="col-span-2"></span>
                     {/*Pagination*/}
                     <span className="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
                   <PaginationComponent
-                      item={props.body.length}
+                      item={props.roles.length}
                       pageSize={pageSize}
                       currentPage={currentPageRoles}
                       onPageChange={onPageChange}
