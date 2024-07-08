@@ -6,6 +6,7 @@ import FormAddNewRole from "@/components/feature/admin_panel/content/role/formAd
 import FormEditRole from "@/components/feature/admin_panel/content/role/formEditRole";
 import FormDeleteRole from "@/components/feature/admin_panel/content/role/formDeleteRole";
 
+// custom type for roles because we don't use createdAt and updatedAt column from prisma model
 type Roles = {
     id:number,
     name:string,
@@ -35,8 +36,6 @@ export default function DataTableRoles(props: {
     };
     const data = paginate(props.roles,currentPageRoles,pageSize)
 
-    // handling edit modal
-
     // handling modal add
     const [modalAdd, setAddModal] = useState(false)
 
@@ -48,6 +47,7 @@ export default function DataTableRoles(props: {
                     title={"Create New Role"}
                     handler={()=>setAddModal(!modalAdd)}
                     content={
+                        // form for add new role component
                         <FormAddNewRole />
                     }/>
             )}
@@ -58,6 +58,7 @@ export default function DataTableRoles(props: {
                         <tr
                             className="text-xs font-semibold tracking-wide text-left text-info uppercase border-b bg-gray-50"
                         >
+                            {/*fetching table title*/}
                             {props.title.map((item:{id:number, name:string}) => (
                                 <th className="px-4 py-3" key={item.id}>{item.name}</th>
                             ))}
@@ -73,6 +74,7 @@ export default function DataTableRoles(props: {
                         >
                         {data.map((item:any,index) => (
                             <tr className="text-gray-700" key={item.id}>
+                                {/*fetching data*/}
                                 {Object.entries(item).map((k:any,i) => (
                                     <td className={"px-4 py-3"} key={i}>
                                         {i==0?(index + 1 + ((currentPageRoles - 1) * pageSize)):k[1]}
@@ -81,7 +83,9 @@ export default function DataTableRoles(props: {
                                 {props.action && (
                                     <td className="px-4 py-3 text-sm flex gap-2 justify-center">
                                         <Button typeName={"button"} className={"btn-sm btn-primary"} name={"detail"} />
+                                        {/*form edit component*/}
                                         <FormEditRole roles={item}/>
+                                        {/*form delete component*/}
                                         <FormDeleteRole roles={item}/>
                                     </td>
                                 )}
@@ -94,18 +98,19 @@ export default function DataTableRoles(props: {
                     className="grid px-4 py-3 text-xs font-semibold tracking-wide text-info uppercase border-t bg-gray-50 sm:grid-cols-9"
                 >
                 <span className="flex items-center col-span-3">
+                  {/*  show number of data*/}
                   Showing {((currentPageRoles-1)*pageSize)+1} - {(((currentPageRoles-1)*pageSize)+pageSize)<= props.roles.length? (((currentPageRoles-1)*pageSize)+pageSize):props.roles.length} of {props.roles.length}
                 </span>
                     <span className="col-span-2"></span>
-                    {/*Pagination*/}
-                    <span className="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
-                  <PaginationComponent
-                      item={props.roles.length}
-                      pageSize={pageSize}
-                      currentPage={currentPageRoles}
-                      onPageChange={onPageChange}
-                  />
-                </span>
+                        {/*Pagination*/}
+                        <span className="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+                          <PaginationComponent
+                              item={props.roles.length}
+                              pageSize={pageSize}
+                              currentPage={currentPageRoles}
+                              onPageChange={onPageChange}
+                          />
+                    </span>
                 </div>
             </div>
         </>

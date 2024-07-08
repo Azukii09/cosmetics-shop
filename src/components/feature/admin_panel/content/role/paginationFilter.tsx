@@ -2,7 +2,10 @@
 import React, {useState} from "react";
 import FormAddNewRole from "@/components/feature/admin_panel/content/role/formAddNewRole";
 import DataTableRoles from "@/components/feature/admin_panel/content/role/dataTableRoles";
+import getTitle from "@/services/tableTitle";
+import {Prisma} from "@prisma/client";
 
+// custom type for roles because we don't use createdAt and updatedAt column from prisma model
 type Roles = {
     id:number,
     name:string,
@@ -10,22 +13,10 @@ type Roles = {
 }
 
 export default function PaginationFilter({roles}:{roles: Roles[]}){
+    // get filtering pagination data showed in table
     const [value, setValue] = useState(5);
-    const title = [
-        {
-            id:1,
-            name:"No"
-        },
-        {
-            id:2,
-            name:"Name"
-        },
-        {
-            id:3,
-            name:"Description"
-        },
-    ]
-
+    // get table column name from database table in this case is role table.
+    const title = getTitle(Prisma.RoleScalarFieldEnum);
     return (
         <>
             <div className={"p-4 flex justify-between"}>
@@ -41,6 +32,7 @@ export default function PaginationFilter({roles}:{roles: Roles[]}){
                     <option value={15}>15</option>
                     <option value={20}>20</option>
                 </select>
+                {/*add new role component*/}
                 <FormAddNewRole/>
             </div>
             {/*Content Table*/}

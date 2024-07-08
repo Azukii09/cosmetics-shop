@@ -3,6 +3,7 @@ import PaginationFilter from "@/components/feature/admin_panel/content/role/pagi
 
 const prisma = new PrismaClient();
 
+// get all data from api using prisma orm findMany function
 const getRoles =async() =>{
     return prisma.role.findMany({
         select: {
@@ -15,7 +16,9 @@ const getRoles =async() =>{
 
 
 export default async function RoleMasterPage() {
-    const roles = await getRoles();
+    // parsing data to roles variable
+    let roles = await getRoles();
+
     return (
         <>
             <div className="container p-8">
@@ -26,6 +29,7 @@ export default async function RoleMasterPage() {
                     >
                         User Master
                     </h4>
+                    {/*parsing data that fetched into pagination filter component*/}
                     <PaginationFilter roles={roles}/>
                 </div>
             </div>

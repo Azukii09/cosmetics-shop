@@ -11,6 +11,8 @@ export default function FormAddNewRole() {
     const [name, setName] = useState("");
     const [desc, setDesc] = useState("");
     const router = useRouter();
+
+    // handler for submit using axios
     const handleSubmit =async (e:SyntheticEvent)=>{
         e.preventDefault();
         await axios.post("/api/role", {
