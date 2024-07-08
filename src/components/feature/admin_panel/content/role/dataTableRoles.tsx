@@ -4,6 +4,7 @@ import Button from "@/components/tokens/button";
 import Modal from "@/components/components/modal";
 import FormAddNewRole from "@/components/feature/admin_panel/content/role/formAddNewRole";
 import FormEditRole from "@/components/feature/admin_panel/content/role/formEditRole";
+import FormDeleteRole from "@/components/feature/admin_panel/content/role/formDeleteRole";
 
 type Roles = {
     id:number,
@@ -80,8 +81,8 @@ export default function DataTableRoles(props: {
                                 {props.action && (
                                     <td className="px-4 py-3 text-sm flex gap-2 justify-center">
                                         <Button typeName={"button"} className={"btn-sm btn-primary"} name={"detail"} />
-                                        <FormEditRole roles={props.roles} index={index+((currentPageRoles - 1) * pageSize)} />
-                                        <Button typeName={"button"} className={"btn-sm btn-danger"} name={"delete"}/>
+                                        <FormEditRole roles={item}/>
+                                        <FormDeleteRole roles={item}/>
                                     </td>
                                 )}
                             </tr>

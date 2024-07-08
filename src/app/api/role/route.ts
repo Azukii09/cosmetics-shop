@@ -12,5 +12,5 @@ export const POST = async (req: Request) => {
             desc: body.desc,
         },
     });
-    return NextResponse.json(role)
+    return NextResponse.json(role,{status:201})
 }

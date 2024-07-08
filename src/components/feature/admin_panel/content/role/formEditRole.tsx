@@ -10,12 +10,11 @@ type Roles = {
 }
 
 export default function FormEditRole(props: {
-    roles: Roles[],
-    index:number
+    roles: Roles,
 }) {
     const [modalEdit, setEditModal] = useState(false)
-    const [roleName, setRoleName] = useState(props.roles[props.index].name);
-    const [desc, setDesc] = useState(props.roles[props.index].desc);
+    const [roleName, setRoleName] = useState(props.roles.name);
+    const [desc, setDesc] = useState(props.roles.desc);
     return (
         <>
             <Button typeName={"button"} className={"btn-sm btn-warning"} name={"edit"} handler={()=>setEditModal(true)}/>
