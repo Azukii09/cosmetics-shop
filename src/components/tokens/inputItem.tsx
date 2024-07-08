@@ -4,7 +4,7 @@ export default function InputItem(props: {
     valueInput?: string | number | undefined;
     type: string | undefined;
     placeholder: string | undefined;
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
     return(
         <>

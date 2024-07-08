@@ -6,7 +6,7 @@ export default function InputForm(props: {
     valueInput?: string | number | undefined;
     type: string | undefined;
     placeholder: string | undefined;
-    onChange: (value: any) => void;
+    onChange?: (value: any) => void;
 }){
     return(
         <>
