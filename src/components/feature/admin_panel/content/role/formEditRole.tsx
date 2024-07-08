@@ -1,7 +1,9 @@
 import InputForm from "@/components/components/inputForm";
 import Button from "@/components/tokens/button";
-import React, {useState} from "react";
+import React, {SyntheticEvent, useState} from "react";
 import Modal from "@/components/components/modal";
+import {useRouter} from "next/navigation";
+import axios from "axios";
 
 type Roles = {
     id:number,
@@ -15,17 +17,30 @@ export default function FormEditRole(props: {
     const [modalEdit, setEditModal] = useState(false)
     const [roleName, setRoleName] = useState(props.roles.name);
     const [desc, setDesc] = useState(props.roles.desc);
+
+    const router = useRouter();
+
+    // handler for submit using axios
+    const handleUpdate =async (e:SyntheticEvent)=>{
+        e.preventDefault();
+        await axios.patch(`/api/role/${props.roles.id}`, {
+            name: name,
+            desc: desc,
+        })
+        router.refresh()
+        setEditModal(false)
+    }
     return (
         <>
             <Button typeName={"button"} className={"btn-sm btn-warning"} name={"edit"} handler={()=>setEditModal(true)}/>
             {/*this is for add data modal*/}
             {modalEdit && (
                 <Modal
-                    title={"Edit New Role"}
+                    title={`Edit data ${roleName}`}
                     handler={()=>setEditModal(false)}
                     content={
                         <div className={""}>
-                            <form>
+                            <form onSubmit={handleUpdate}>
                                 <div className="mt-2 pl-4">
                                     <InputForm
                                         labelName={"Role Name"}
