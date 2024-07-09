@@ -16,7 +16,7 @@ export default function PaginationFilter({roles}:{roles: Roles[]}){
     // get filtering pagination data showed in table
     const [value, setValue] = useState(5);
     // get table column name from database table in this case is role table.
-    const title = getTitle(Prisma.RoleScalarFieldEnum);
+    const title = getTitle(Prisma.RoleScalarFieldEnum,["createdAt","updatedAt"]);
     return (
         <>
             <div className={"p-4 flex justify-between"}>
