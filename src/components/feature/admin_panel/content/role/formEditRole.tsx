@@ -15,7 +15,7 @@ export default function FormEditRole(props: {
     roles: Roles,
 }) {
     const [modalEdit, setEditModal] = useState(false)
-    const [roleName, setRoleName] = useState(props.roles.name);
+    const [name, setRoleName] = useState(props.roles.name);
     const [desc, setDesc] = useState(props.roles.desc);
 
     const router = useRouter();
@@ -36,7 +36,7 @@ export default function FormEditRole(props: {
             {/*this is for add data modal*/}
             {modalEdit && (
                 <Modal
-                    title={`Edit data ${roleName}`}
+                    title={`Edit data ${name}`}
                     handler={()=>setEditModal(false)}
                     content={
                         <div className={""}>
@@ -46,7 +46,7 @@ export default function FormEditRole(props: {
                                         labelName={"Role Name"}
                                         type={"text"}
                                         placeholder={"role name"}
-                                        valueInput={roleName}
+                                        valueInput={name}
                                         onChange={(e)=>setRoleName(e.target.value)}
                                     />
                                     <InputForm
@@ -58,8 +58,7 @@ export default function FormEditRole(props: {
                                     />
                                 </div>
                                 <div className="py-3 flex gap-4 flex-row-reverse">
-                                    <Button typeName={"button"} className={"btn btn-primary"} name={"Create"}
-                                            handler={()=>setEditModal(false)}/>
+                                    <Button typeName={"submit"} className={"btn btn-primary"} name={"Update"}/>
                                     <Button typeName={"button"} className={"btn btn-line "} name={"Cancel"}
                                             handler={()=>setEditModal(false)}/>
                                 </div>

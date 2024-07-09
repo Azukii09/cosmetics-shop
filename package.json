@@ -1,6 +1,9 @@
 {
   "name": "cosmetics-shop",
   "version": "0.1.0",
+  "prisma": {
+    "seed": "tsx prisma/seed/seed.ts"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -17,6 +20,8 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@snaplet/copycat": "^5.0.0",
+    "@snaplet/seed": "^0.97.20",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -25,6 +30,10 @@
     "postcss": "^8",
     "prisma": "^5.16.1",
     "tailwindcss": "^3.4.1",
+    "tsx": "^4.16.2",
     "typescript": "^5"
+  },
+  "@snaplet/seed": {
+    "config": "prisma/seed/seed.config.ts"
   }
 }

@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import PaginationComponent from "@/components/components/paginationsComponent";
-import Button from "@/components/tokens/button";
 import Modal from "@/components/components/modal";
 import FormAddNewRole from "@/components/feature/admin_panel/content/role/formAddNewRole";
 import FormEditRole from "@/components/feature/admin_panel/content/role/formEditRole";
 import FormDeleteRole from "@/components/feature/admin_panel/content/role/formDeleteRole";
+import FormDetailRole from "@/components/feature/admin_panel/content/role/formDetailRole";
 
 // custom type for roles because we don't use createdAt and updatedAt column from prisma model
 type Roles = {
@@ -82,7 +82,8 @@ export default function DataTableRoles(props: {
                                 ))}
                                 {props.action && (
                                     <td className="px-4 py-3 text-sm flex gap-2 justify-center">
-                                        <Button typeName={"button"} className={"btn-sm btn-primary"} name={"detail"} />
+                                        {/*form detail component*/}
+                                        <FormDetailRole roles={item}/>
                                         {/*form edit component*/}
                                         <FormEditRole roles={item}/>
                                         {/*form delete component*/}
