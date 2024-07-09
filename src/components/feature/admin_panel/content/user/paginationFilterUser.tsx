@@ -1,10 +1,9 @@
 "use client"
 import React, {useState} from "react";
-import FormAddNewRole from "@/components/feature/admin_panel/content/role/formAddNewRole";
-import DataTableRoles from "@/components/feature/admin_panel/content/role/dataTableRoles";
 import getTitle from "@/services/tableTitle";
 import {Prisma} from "@prisma/client";
 import DataTableUsers from "@/components/feature/admin_panel/content/user/dataTableUsers";
+import FormAddNewUsers from "@/components/feature/admin_panel/content/user/formAddNewUser";
 
 
 // custom type for roles because we don't use createdAt and updatedAt column from prisma model
@@ -49,10 +48,10 @@ export default function PaginationFilterUser({users,roles}:{users: Users[],roles
                     <option value={20}>20</option>
                 </select>
                 {/*add new role component*/}
-                {/*<FormAddNewRole/>*/}
+                <FormAddNewUsers roles={roles}/>
             </div>
             {/*Content Table*/}
-            <DataTableUsers users={users} title={title} pageSize={value} action={true}/>
+            <DataTableUsers users={users} roles={roles} title={title} pageSize={value} action={true}/>
         </>
     )
 }

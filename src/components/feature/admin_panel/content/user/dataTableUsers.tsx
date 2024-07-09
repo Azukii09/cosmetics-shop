@@ -1,11 +1,6 @@
 import React, {useState} from "react";
 import PaginationComponent from "@/components/components/paginationsComponent";
-import Modal from "@/components/components/modal";
-import FormAddNewRole from "@/components/feature/admin_panel/content/role/formAddNewRole";
-import FormEditRole from "@/components/feature/admin_panel/content/role/formEditRole";
-import FormDeleteRole from "@/components/feature/admin_panel/content/role/formDeleteRole";
-import FormDetailRole from "@/components/feature/admin_panel/content/role/formDetailRole";
-import type {User} from "@prisma/client"
+
 
 // custom type for users because we don't use createdAt and updatedAt column from prisma model
 type Users = {
@@ -30,6 +25,7 @@ type Roles = {
 
 export default function DataTableUsers(props: {
     users: Users[]
+    roles: Roles[]
     title: any[];
     pageSize: number;
     action:boolean;
@@ -52,20 +48,9 @@ export default function DataTableUsers(props: {
     const data = paginate(props.users,currentPageUsers,pageSize)
 
     // handling modal add
-    const [modalAdd, setAddModal] = useState(false)
 
     return (
         <>
-            {/*this is for add data modal*/}
-            {modalAdd && (
-                <Modal
-                    title={"Create New Role"}
-                    handler={()=>setAddModal(!modalAdd)}
-                    content={
-                        // form for add new role component
-                        <FormAddNewRole />
-                    }/>
-            )}
             <div className="w-full mb-8 overflow-hidden rounded-lg shadow-xs">
                 <div className="w-full overflow-x-auto">
                     <table className="w-full whitespace-no-wrap">
