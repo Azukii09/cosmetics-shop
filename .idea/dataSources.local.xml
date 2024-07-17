@@ -21,5 +21,14 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="verceldb@ep-misty-sunset-a1jasyx9-pooler.ap-southeast-1.aws.neon.tech" uuid="366faf30-60bf-42e6-86b7-2736c6295cbb">
+      <database-info product="PostgreSQL" version="16.3" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.6.0" dbms="POSTGRES" exact-version="16.3" exact-driver-version="42.6">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>default</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>
