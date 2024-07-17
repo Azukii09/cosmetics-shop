@@ -2,7 +2,7 @@
   "name": "cosmetics-shop",
   "version": "0.1.0",
   "prisma": {
-    "seed": "tsx prisma/seed/seed.ts"
+    "seed": "ts-node --compiler-options {\\\"module\\\":\\\"CommonJS\\\"} prisma/seed/seed.ts"
   },
   "private": true,
   "scripts": {
