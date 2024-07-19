@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import PaginationComponent from "@/components/components/paginationsComponent";
 import FormDetailUser from "@/components/feature/admin_panel/content/user/formDetailUser";
+import FormDeleteUser from "@/components/feature/admin_panel/content/user/formDeleteUser";
 
 
 // custom type for users because we don't use createdAt and updatedAt column from prisma model
@@ -99,8 +100,8 @@ export default function DataTableUsers(props: {
                                         <FormDetailUser users={item}/>
                                         {/*/!*form edit component*!/*/}
                                         {/*<FormEditRole users={item}/>*/}
-                                        {/*/!*form delete component*!/*/}
-                                        {/*<FormDeleteRole users={item}/>*/}
+                                        {/*form delete component*/}
+                                        <FormDeleteUser users={item}/>
                                     </td>
                                 )}
                             </tr>
