@@ -1,7 +1,7 @@
 import Slider from "@/components/feature/end_user/content/slider";
 import ProductSection from "@/components/feature/end_user/content/productSection";
 import CategoriesSection from "@/components/feature/end_user/content/categoriesSection";
-import {getProducts} from "@/data/productList";
+import {getProducts} from "../../services/data/productList";
 import Navbar from "@/components/feature/end_user/template/navbar";
 import Footer from "@/components/feature/end_user/template/footer";
 

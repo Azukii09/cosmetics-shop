@@ -2,7 +2,7 @@
 import React, {useState} from "react";
 import FormAddNewRole from "@/components/feature/admin_panel/content/role/formAddNewRole";
 import DataTableRoles from "@/components/feature/admin_panel/content/role/dataTableRoles";
-import getTitle from "@/services/tableTitle";
+import getTitle from "../../../../../../services/tableTitle";
 import {Prisma} from "@prisma/client";
 
 // custom type for roles because we don't use createdAt and updatedAt column from prisma model

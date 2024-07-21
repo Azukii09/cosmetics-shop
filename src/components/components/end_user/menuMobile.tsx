@@ -3,7 +3,7 @@
 import {useState} from "react";
 import Image from "next/image";
 import ListComponent from "@/components/components/listComponent";
-import {getNavbar} from "@/data/navbar";
+import {getNavbar} from "../../../../services/data/navbar";
 
 export default function MenuMobile() {
     const [isOpen, setIsOpen] = useState(false);

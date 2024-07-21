@@ -1,6 +1,6 @@
 "use client"
-import {getSlider} from "@/data/slider";
-import {useEffect, useState} from "react";
+import {getSlider} from "../../../../../services/data/slider";
+import { useState} from "react";
 import Button from "@/components/tokens/button";
 import {useRouter} from "next/navigation";
 import Image from "next/image";

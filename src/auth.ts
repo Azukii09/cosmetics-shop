@@ -1,6 +1,6 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
-import { getUsers} from "@/data/user";
+import { getUsers} from "../services/data/user";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
     session: {

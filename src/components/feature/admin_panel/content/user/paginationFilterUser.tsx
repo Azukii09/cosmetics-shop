@@ -1,6 +1,6 @@
 "use client"
 import React, {useState} from "react";
-import getTitle from "@/services/tableTitle";
+import getTitle from "../../../../../../services/tableTitle";
 import {Prisma} from "@prisma/client";
 import DataTableUsers from "@/components/feature/admin_panel/content/user/dataTableUsers";
 import FormAddNewUsers from "@/components/feature/admin_panel/content/user/formAddNewUser";
