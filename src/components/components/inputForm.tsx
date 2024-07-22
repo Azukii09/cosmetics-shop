@@ -5,6 +5,7 @@ export default function InputForm(props: {
     labelName: string | undefined;
     valueInput?: string | number | undefined;
     type: string | undefined;
+    name?: string | undefined;
     placeholder: string | undefined;
     onChange?: (value: any) => void;
 }){
@@ -17,6 +18,7 @@ export default function InputForm(props: {
                     placeholder={props.placeholder}
                     valueInput={props.valueInput}
                     onChange={props.onChange}
+                    name={props.name}
                 />
             </label>
         </>

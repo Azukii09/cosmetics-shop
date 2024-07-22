@@ -2,6 +2,7 @@ import React from "react";
 
 export default function InputItem(props: {
     valueInput?: string | number | undefined;
+    name?: string | undefined;
     type: string | undefined;
     placeholder: string | undefined;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -14,6 +15,7 @@ export default function InputItem(props: {
                 placeholder={props.placeholder}
                 value={props.valueInput}
                 onChange={props.onChange}
+                name={props.name}
             />
 
         </>
