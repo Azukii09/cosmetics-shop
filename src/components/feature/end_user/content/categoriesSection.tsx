@@ -1,4 +1,4 @@
-import {getCategories} from "@/data/category";
+import {getCategories} from "../../../../../services/data/category";
 import ListCategory from "@/components/components/end_user/categoriesList/listCategory";
 
 export default function CategoriesSection() {

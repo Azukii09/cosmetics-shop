@@ -62,7 +62,8 @@ export default function DataTableUsers(props: {
                         >
                             {/*fetching table title*/}
                             {props.title.map((item:{id:number, name:string}) => (
-                                <th className="px-4 py-3" key={item.id}>{item.name}</th>
+                                item.name === "roleId" ? <th className="px-4 py-3" key={item.id}>Role Name</th> :
+                                    <th className="px-4 py-3" key={item.id}>{item.name}</th>
                             ))}
                             {props.action && (
                                 <th className="px-4 py-3">

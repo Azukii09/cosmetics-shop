@@ -5,6 +5,8 @@ import React, {SyntheticEvent, useState} from "react";
 import Modal from "@/components/components/modal";
 import axios from "axios";
 import {useRouter} from "next/navigation";
+import toast from "react-hot-toast";
+import {RoleSchema} from "../../../../../../services/validation/schema/role/roleSchema";
 
 export default function FormAddNewRole() {
     const [modalAdd, setAddModal] = useState(false)
@@ -15,10 +17,21 @@ export default function FormAddNewRole() {
     // handler for submit using axios
     const handleSubmit =async (e:SyntheticEvent)=>{
         e.preventDefault();
-        await axios.post("/api/role", {
-            name: name,
-            desc: desc,
-        })
+        const data ={
+            name : name,
+            desc : desc,
+        }
+        const result = RoleSchema.safeParse(data);
+        if (!result.success){
+            let errorMessage =""
+            result.error.issues.forEach((issue:any)=>{
+                errorMessage = errorMessage + issue.path[0]+ ": " +issue.message +";  ";
+            })
+            toast.error(errorMessage)
+            return;
+        }
+        await axios.post("/api/role", data)
+
         setName("")
         setDesc("")
         router.refresh()

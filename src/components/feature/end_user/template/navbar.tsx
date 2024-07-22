@@ -3,7 +3,7 @@ import MenuMobile from "@/components/components/end_user/menuMobile";
 import Logo from "@/components/tokens/logo";
 import NavSearchBar from "@/components/feature/end_user/template/navSearchBar";
 import NavIcon from "@/components/feature/end_user/template/navIcon";
-import {getNavbar} from "@/data/navbar";
+import {getNavbar} from "../../../../../services/data/navbar";
 import ListComponent from "@/components/components/listComponent";
 import {useEffect, useState} from "react";
 

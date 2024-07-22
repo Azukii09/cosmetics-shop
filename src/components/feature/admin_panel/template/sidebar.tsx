@@ -4,7 +4,7 @@ import Logo from "@/components/tokens/logo";
 import Link from "next/dist/client/link";
 import Image from "next/image";
 import {usePathname} from "next/navigation";
-import {getSidebar} from "@/data/sidebar";
+import {getSidebar} from "../../../../../services/data/sidebar";
 
 export default function Sidebar(){
     const menu = getSidebar()

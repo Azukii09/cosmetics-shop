@@ -2,7 +2,7 @@
 
 import React, {useState} from "react";
 import Image from "next/image";
-import {getSidebar} from "@/data/sidebar";
+import {getSidebar} from "../../../../services/data/sidebar";
 import Link from "next/dist/client/link";
 import {usePathname} from "next/navigation";
 
