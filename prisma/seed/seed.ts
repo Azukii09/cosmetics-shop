@@ -5,14 +5,17 @@
  * Learn more about the Seed Client by following our guide: https://docs.snaplet.dev/seed/getting-started
  */
 import { createSeedClient } from "@snaplet/seed";
+import HashPassword from "../../services/functionality/passwordHandler";
 
 const main = async () => {
   const seed = await createSeedClient();
 
   // Truncate all tables in the database
+  // @ts-ignore
   await seed.$resetDatabase();
 
   // Seed the database with 10 role
+  // @ts-ignore
   await seed.role([
     {
       name: "owner",
@@ -60,81 +63,82 @@ const main = async () => {
     },
   ]);
 
+  // @ts-ignore
   await seed.user([
     {
       name: "owner account",
       email: "owner@dresyee.com",
-      password: "password",
+      password: HashPassword("password"),
       address:"address 1",
       roleId:1
     },
     {
       name: "administrator account",
       email: "administrator@dresyee.com",
-      password: "password",
+      password: HashPassword("password"),
       address:"address 2",
       roleId:2
     },
     {
       name: "finance manager account",
       email: "finance_manager@dresyee.com",
-      password: "password",
+      password: HashPassword("password"),
       address:"address 3",
       roleId:3
     },
     {
       name: "store manager account",
       email: "store_manager@dresyee.com",
-      password: "password",
+      password: HashPassword("password"),
       address:"address 4",
       roleId:4
     },
     {
       name: "marketing account",
       email: "marketing@dresyee.com",
-      password: "password",
+      password: HashPassword("password"),
       address:"address 5",
       roleId:5
     },
     {
       name: "business representative account",
       email: "br@dresyee.com",
-      password: "password",
+      password: HashPassword("password"),
       address:"address 6",
       roleId:6
     },
     {
       name: "warehouse manager account",
       email: "warehouse@dresyee.com",
-      password: "password",
+      password: HashPassword("password"),
       address:"address 7",
       roleId:7
     },
     {
       name: "staff of finance account",
       email: "staff_finance@dresyee.com",
-      password: "password",
+      password: HashPassword("password"),
       address:"address 8",
       roleId:8
     },
     {
       name: "staff of store account",
       email: "staff_store@dresyee.com",
-      password: "password",
+      password: HashPassword("password"),
       address:"address 9",
       roleId:9
     },
     {
       name: "staff of marketing account",
       email: "staff_marketing@dresyee.com",
-      password: "password",
+      password: HashPassword("password"),
       address:"address 10",
       roleId:10
     },
     {
       name: "staff of warehouse account",
       email: "staff_warehouse@dresyee.com",
-      password: "password",
+      password: HashPassword("password"),
       address:"address 11",
       roleId:11
     },

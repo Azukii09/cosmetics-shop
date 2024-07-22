@@ -6,6 +6,7 @@ import Modal from "@/components/components/modal";
 import axios from "axios";
 import {useRouter} from "next/navigation";
 import LabelInput from "@/components/tokens/labelInput";
+import HashPassword from "../../../../../../services/functionality/passwordHandler";
 
 type Roles = {
     id:number,
@@ -30,7 +31,7 @@ export default function FormAddNewUsers(props:{
         await axios.post("/api/user", {
             name: name,
             email: email,
-            password: password,
+            password: HashPassword(password),
             address: address,
             roleId: roleId,
         })
