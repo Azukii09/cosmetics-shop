@@ -4,6 +4,8 @@ import React, {SyntheticEvent, useState} from "react";
 import Modal from "@/components/components/modal";
 import {useRouter} from "next/navigation";
 import axios from "axios";
+import {RoleSchema} from "../../../../../../services/validation/schema/role/roleSchema";
+import toast from "react-hot-toast";
 
 type Roles = {
     id:number,
@@ -21,12 +23,22 @@ export default function FormEditRole(props: {
     const router = useRouter();
 
     // handler for submit using axios
-    const handleUpdate =async (e:SyntheticEvent)=>{
-        e.preventDefault();
-        await axios.patch(`/api/role/${props.roles.id}`, {
-            name: name,
-            desc: desc,
-        })
+    const handleUpdate =async (event:SyntheticEvent)=>{
+        event.preventDefault();
+        const dataUpdate ={
+            name : name,
+            desc : desc,
+        }
+        const result = RoleSchema.safeParse(dataUpdate);
+        if (!result.success){
+            let errorMessage =""
+            result.error.issues.forEach((issue:any)=>{
+                errorMessage = errorMessage + issue.path[0]+ ": " +issue.message +";  ";
+            })
+            toast.error(errorMessage)
+            return;
+        }
+        await axios.patch(`/api/role/${props.roles.id}`, dataUpdate)
         router.refresh()
         setEditModal(false)
     }
