@@ -6,7 +6,7 @@ import Modal from "@/components/components/modal";
 import axios from "axios";
 import {useRouter} from "next/navigation";
 import toast from "react-hot-toast";
-import {RoleSchema} from "../../../../../../services/validation/schema/role/roleSchema";
+import {RoleSchema} from "../../../../../../services/validation/schema/roleSchema";
 
 export default function FormAddNewRole() {
     const [modalAdd, setAddModal] = useState(false)
