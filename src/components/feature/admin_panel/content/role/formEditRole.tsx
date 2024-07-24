@@ -4,7 +4,7 @@ import React, {SyntheticEvent, useState} from "react";
 import Modal from "@/components/components/modal";
 import {useRouter} from "next/navigation";
 import axios from "axios";
-import {RoleSchema} from "../../../../../../services/validation/schema/role/roleSchema";
+import {RoleSchema} from "../../../../../../services/validation/schema/roleSchema";
 import toast from "react-hot-toast";
 
 type Roles = {
