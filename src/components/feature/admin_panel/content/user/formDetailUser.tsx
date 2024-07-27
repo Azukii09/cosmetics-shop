@@ -8,6 +8,7 @@ type Users = {
     email:string,
     password:string,
     address:string,
+    phone:string,
     roleId: number,
     role:{
         id:number,
@@ -45,6 +46,10 @@ export default function FormDetailUser(props: {
                                     <tr>
                                         <td className={"w-1/3 py-3 px-2 text-xs font-semibold tracking-wide text-left text-info uppercase border-b bg-gray-50"}>User Address</td>
                                         <td className={"divide-y px-2 border-b"}>: {props.users.address}</td>
+                                    </tr>
+                                    <tr>
+                                        <td className={"w-1/3 py-3 px-2 text-xs font-semibold tracking-wide text-left text-info uppercase border-b bg-gray-50"}>User Phone</td>
+                                        <td className={"divide-y px-2 border-b"}>: {props.users.phone}</td>
                                     </tr>
                                     <tr>
                                         <td className={"w-1/3 py-3 px-2 text-xs font-semibold tracking-wide text-left text-info uppercase border-b bg-gray-50"}>User Role</td>

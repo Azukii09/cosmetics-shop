@@ -15,6 +15,10 @@ export const UserSchema = z.object({
         .trim()
         .min(5,{message:"Address is required and at least contains 5 characters"})
         .max(100,{message:"Address must be at most 100 characters long"}),
+    phone : z.string()
+        .trim()
+        .min(1,{message:"Phone number is required"})
+        .max(13,{message:"Phone number must be at most 13 characters long"}),
     roleId: z.number()
         .min(1)
         .max(100,{message:"Role ID is required"}),

@@ -70,6 +70,7 @@ const main = async () => {
       email: "owner@dresyee.com",
       password: HashPassword("password"),
       address:"address 1",
+      phone:"081234567890",
       roleId:1
     },
     {
@@ -77,6 +78,7 @@ const main = async () => {
       email: "administrator@dresyee.com",
       password: HashPassword("password"),
       address:"address 2",
+      phone:"081234567890",
       roleId:2
     },
     {
@@ -84,6 +86,7 @@ const main = async () => {
       email: "finance_manager@dresyee.com",
       password: HashPassword("password"),
       address:"address 3",
+      phone:"081234567890",
       roleId:3
     },
     {
@@ -91,6 +94,7 @@ const main = async () => {
       email: "store_manager@dresyee.com",
       password: HashPassword("password"),
       address:"address 4",
+      phone:"081234567890",
       roleId:4
     },
     {
@@ -98,6 +102,7 @@ const main = async () => {
       email: "marketing@dresyee.com",
       password: HashPassword("password"),
       address:"address 5",
+      phone:"081234567890",
       roleId:5
     },
     {
@@ -105,6 +110,7 @@ const main = async () => {
       email: "br@dresyee.com",
       password: HashPassword("password"),
       address:"address 6",
+      phone:"081234567890",
       roleId:6
     },
     {
@@ -112,6 +118,7 @@ const main = async () => {
       email: "warehouse@dresyee.com",
       password: HashPassword("password"),
       address:"address 7",
+      phone:"081234567890",
       roleId:7
     },
     {
@@ -119,6 +126,7 @@ const main = async () => {
       email: "staff_finance@dresyee.com",
       password: HashPassword("password"),
       address:"address 8",
+      phone:"081234567890",
       roleId:8
     },
     {
@@ -126,6 +134,7 @@ const main = async () => {
       email: "staff_store@dresyee.com",
       password: HashPassword("password"),
       address:"address 9",
+      phone:"081234567890",
       roleId:9
     },
     {
@@ -133,6 +142,7 @@ const main = async () => {
       email: "staff_marketing@dresyee.com",
       password: HashPassword("password"),
       address:"address 10",
+      phone:"081234567890",
       roleId:10
     },
     {
@@ -140,6 +150,7 @@ const main = async () => {
       email: "staff_warehouse@dresyee.com",
       password: HashPassword("password"),
       address:"address 11",
+      phone:"081234567890",
       roleId:11
     },
   ])

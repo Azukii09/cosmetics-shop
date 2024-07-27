@@ -24,6 +24,7 @@ export default function FormAddNewUsers(props:{
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [address, setAddress] = useState("");
+    const [phone, setPhone] = useState("");
     const [roleId, setRoleId] = useState(0);
     const router = useRouter();
 
@@ -35,6 +36,7 @@ export default function FormAddNewUsers(props:{
             email : email,
             password: password,
             address : address,
+            phone : phone,
             roleId:roleId,
         }
         const result = UserSchema.safeParse(data);
@@ -51,12 +53,14 @@ export default function FormAddNewUsers(props:{
             email: email,
             password: HashPassword(password),
             address: address,
+            phone: phone,
             roleId: roleId,
         })
         setName("")
         setEmail("")
         setPassword("")
         setAddress("")
+        setPhone("")
         setRoleId(0)
         router.refresh()
         setAddModal(false)
@@ -101,6 +105,13 @@ export default function FormAddNewUsers(props:{
                                         placeholder={"User Address"}
                                         valueInput={address}
                                         onChange={(e) => setAddress(e.target.value)}
+                                    />
+                                    <InputForm
+                                        labelName={"User Phone"}
+                                        type={"text"}
+                                        placeholder={"User Phone"}
+                                        valueInput={address}
+                                        onChange={(e) => setPhone(e.target.value)}
                                     />
                                     <label className="block text-sm mb-4">
                                         <LabelInput labelName={"Role Name"}/>

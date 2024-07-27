@@ -19,9 +19,9 @@
 16389||-9223372036854775808|T|G
 16389||16384|T|G
 16389||16387|T|G</Grants>
-      <IntrospectionStateNumber>19456</IntrospectionStateNumber>
+      <IntrospectionStateNumber>21589</IntrospectionStateNumber>
       <ServerVersion>16.3</ServerVersion>
-      <StartupTime>1722071675</StartupTime>
+      <StartupTime>1722078616</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -821,7 +821,7 @@ false Zulu
 13187||10|C|G
 13187||-9223372036854775808|U|G
 13187||10|U|G</Grants>
-      <IntrospectionStateNumber>19456</IntrospectionStateNumber>
+      <IntrospectionStateNumber>21589</IntrospectionStateNumber>
       <ObjectId>16389</ObjectId>
       <OwnerName>default</OwnerName>
     </database>
@@ -4260,8 +4260,8 @@ false Zulu
     <schema id="266" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>19456</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2024-07-27.09:15:58</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>21589</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2024-07-27.11:25:06</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>523</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4271,7 +4271,7 @@ false Zulu
       <ObjectId>24612</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>12289</StateNumber>
+      <StateNumber>21583</StateNumber>
       <OwnerName>default</OwnerName>
     </sequence>
     <sequence id="268" parent="266" name="User_id_seq">
@@ -4279,18 +4279,18 @@ false Zulu
       <ObjectId>24622</ObjectId>
       <SequenceIdentity>1</SequenceIdentity>
       <StartValue>1</StartValue>
-      <StateNumber>12290</StateNumber>
+      <StateNumber>21584</StateNumber>
       <OwnerName>default</OwnerName>
     </sequence>
     <table id="269" parent="266" name="Role">
       <ObjectId>24613</ObjectId>
-      <StateNumber>12288</StateNumber>
+      <StateNumber>21582</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>default</OwnerName>
     </table>
     <table id="270" parent="266" name="User">
       <ObjectId>24623</ObjectId>
-      <StateNumber>12288</StateNumber>
+      <StateNumber>21582</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>default</OwnerName>
     </table>
@@ -4343,7 +4343,7 @@ false Zulu
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24620</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>12288</StateNumber>
+      <StateNumber>21582</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
@@ -4413,7 +4413,14 @@ false Zulu
       <StateNumber>1036</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <foreign-key id="287" parent="270" name="User_roleId_fkey">
+    <column id="287" parent="270" name="phone">
+      <DasType>text|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+      <StateNumber>21565</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <foreign-key id="288" parent="270" name="User_roleId_fkey">
       <ColNames>roleId</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24632</ObjectId>
@@ -4423,62 +4430,62 @@ false Zulu
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>24613</RefTableId>
     </foreign-key>
-    <index id="288" parent="270" name="User_pkey">
+    <index id="289" parent="270" name="User_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24630</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>12288</StateNumber>
+      <StateNumber>21582</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="289" parent="270" name="User_pkey">
+    <key id="290" parent="270" name="User_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24631</ObjectId>
       <Primary>1</Primary>
       <StateNumber>1036</StateNumber>
       <UnderlyingIndexId>24630</UnderlyingIndexId>
     </key>
-    <column id="290" parent="271" name="id">
+    <column id="291" parent="271" name="id">
       <DasType>varchar(36)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>1030</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="291" parent="271" name="checksum">
+    <column id="292" parent="271" name="checksum">
       <DasType>varchar(64)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>1030</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="292" parent="271" name="finished_at">
+    <column id="293" parent="271" name="finished_at">
       <DasType>timestamp with time zone|0s</DasType>
       <Position>3</Position>
       <StateNumber>1030</StateNumber>
       <TypeId>1184</TypeId>
     </column>
-    <column id="293" parent="271" name="migration_name">
+    <column id="294" parent="271" name="migration_name">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
       <StateNumber>1030</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="294" parent="271" name="logs">
+    <column id="295" parent="271" name="logs">
       <DasType>text|0s</DasType>
       <Position>5</Position>
       <StateNumber>1030</StateNumber>
       <TypeId>25</TypeId>
     </column>
-    <column id="295" parent="271" name="rolled_back_at">
+    <column id="296" parent="271" name="rolled_back_at">
       <DasType>timestamp with time zone|0s</DasType>
       <Position>6</Position>
       <StateNumber>1030</StateNumber>
       <TypeId>1184</TypeId>
     </column>
-    <column id="296" parent="271" name="started_at">
+    <column id="297" parent="271" name="started_at">
       <DasType>timestamp with time zone|0s</DasType>
       <DefaultExpression>now()</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4486,7 +4493,7 @@ false Zulu
       <StateNumber>1030</StateNumber>
       <TypeId>1184</TypeId>
     </column>
-    <column id="297" parent="271" name="applied_steps_count">
+    <column id="298" parent="271" name="applied_steps_count">
       <DasType>integer|0s</DasType>
       <DefaultExpression>0</DefaultExpression>
       <NotNull>1</NotNull>
@@ -4494,7 +4501,7 @@ false Zulu
       <StateNumber>1030</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="298" parent="271" name="_prisma_migrations_pkey">
+    <index id="299" parent="271" name="_prisma_migrations_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24610</ObjectId>
@@ -4506,7 +4513,7 @@ false Zulu
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="299" parent="271" name="_prisma_migrations_pkey">
+    <key id="300" parent="271" name="_prisma_migrations_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>24611</ObjectId>
       <Primary>1</Primary>
