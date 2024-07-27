@@ -12,6 +12,7 @@ const getUsers =async() =>{
             email: true,
             password: true,
             address: true,
+            phone: true,
             roleId: true,
             role: {
                 select:{

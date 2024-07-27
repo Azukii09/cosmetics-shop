@@ -1,31 +1,45 @@
-"use client"
-import InputForm from "@/components/components/inputForm";
-import Button from "@/components/tokens/button";
 import React, {SyntheticEvent, useState} from "react";
-import Modal from "@/components/components/modal";
-import axios from "axios";
 import {useRouter} from "next/navigation";
-import LabelInput from "@/components/tokens/labelInput";
-import HashPassword from "../../../../../../services/functionality/passwordHandler";
-import toast from "react-hot-toast";
 import {UserSchema} from "../../../../../../services/validation/schema/userSchema";
+import toast from "react-hot-toast";
+import axios from "axios";
+import HashPassword from "../../../../../../services/functionality/passwordHandler";
+import Button from "@/components/tokens/button";
+import Modal from "@/components/components/modal";
+import InputForm from "@/components/components/inputForm";
+import LabelInput from "@/components/tokens/labelInput";
 
 type Roles = {
     id:number,
     name:string,
     desc: string
 }
+type User = {
+    id:number,
+    name:string,
+    email:string,
+    password:string,
+    address:string,
+    phone:string,
+    roleId: number,
+    role:{
+        id:number,
+        name:string,
+        desc:string,
+    }
+}
 
-export default function FormAddNewUsers(props:{
+export default function FormEditUser(props:{
     roles:Roles[],
+    user:User
 }) {
     const [modalAdd, setAddModal] = useState(false)
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [address, setAddress] = useState("");
-    const [phone, setPhone] = useState("");
-    const [roleId, setRoleId] = useState(0);
+    const [name, setName] = useState(props.user.name);
+    const [email, setEmail] = useState(props.user.email);
+    const [password, setPassword] = useState(props.user.password);
+    const [address, setAddress] = useState(props.user.address);
+    const [phone, setPhone] = useState(props.user.phone);
+    const [roleId, setRoleId] = useState(props.user.roleId);
     const router = useRouter();
 
     // handler for submit using axios
@@ -36,7 +50,7 @@ export default function FormAddNewUsers(props:{
             email : email,
             password: password,
             address : address,
-            phone : phone,
+            phone:phone,
             roleId:roleId,
         }
         const result = UserSchema.safeParse(data);
@@ -48,26 +62,20 @@ export default function FormAddNewUsers(props:{
             toast.error(errorMessage)
             return;
         }
-        await axios.post("/api/user", {
+        await axios.post(`/api/user/${props.user.id}`, {
             name: name,
             email: email,
-            password: HashPassword(password),
+            password: password,
             address: address,
-            phone: phone,
+            phone:phone,
             roleId: roleId,
         })
-        setName("")
-        setEmail("")
-        setPassword("")
-        setAddress("")
-        setPhone("")
-        setRoleId(0)
         router.refresh()
         setAddModal(false)
     }
     return(
         <>
-            <Button typeName={"button"} className={"btn btn-primary w-16"} name={"Add"}
+            <Button typeName={"button"} className={"btn btn-warning w-16"} name={"Edit"}
                     handler={()=>setAddModal(true)}/>
             {/*this is for add data modal*/}
             {modalAdd && (
@@ -134,7 +142,7 @@ export default function FormAddNewUsers(props:{
                                     <Button
                                         typeName={"submit"}
                                         className={"btn btn-primary"}
-                                        name={"Create"}
+                                        name={"Update"}
                                     />
                                     <Button
                                         typeName={"button"}
