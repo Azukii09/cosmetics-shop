@@ -7,6 +7,8 @@ import axios from "axios";
 import {useRouter} from "next/navigation";
 import LabelInput from "@/components/tokens/labelInput";
 import HashPassword from "../../../../../../services/functionality/passwordHandler";
+import toast from "react-hot-toast";
+import {UserSchema} from "../../../../../../services/validation/schema/userSchema";
 
 type Roles = {
     id:number,
@@ -28,6 +30,22 @@ export default function FormAddNewUsers(props:{
     // handler for submit using axios
     const handleSubmit =async (e:SyntheticEvent)=>{
         e.preventDefault();
+        const data ={
+            name : name,
+            email : email,
+            password: password,
+            address : address,
+            roleId:roleId,
+        }
+        const result = UserSchema.safeParse(data);
+        if (!result.success){
+            let errorMessage =""
+            result.error.issues.forEach((issue:any)=>{
+                errorMessage = errorMessage + issue.path[0]+ ": " +issue.message +";  ";
+            })
+            toast.error(errorMessage)
+            return;
+        }
         await axios.post("/api/user", {
             name: name,
             email: email,
